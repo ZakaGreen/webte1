@@ -1,0 +1,267 @@
+index.html
+Validator: https://validator.w3.org/nu/?out=json
+
+{
+  "version": "26.10.7",
+  "messages": [
+    {
+      "type": "info",
+      "lastLine": 4,
+      "lastColumn": 28,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "head>\n    <meta charset=\"UTF-8\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 24
+    },
+    {
+      "type": "info",
+      "lastLine": 5,
+      "lastColumn": 76,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 72
+    },
+    {
+      "type": "info",
+      "lastLine": 7,
+      "lastColumn": 160,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "itle>\n    <meta name=\"description\" content=\"Som Ilia Liubotin, študent aplikovanej informatiky na FEI STU. Spoznajte moje projekty, záujem o AI, čaj a cestovanie.\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 156
+    },
+    {
+      "type": "info",
+      "lastLine": 8,
+      "lastColumn": 88,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ".\" />\n    <meta property=\"og:title\" content=\"Ilia Liubotin | Programovanie a chvíle pokoja\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 84
+    },
+    {
+      "type": "info",
+      "lastLine": 9,
+      "lastColumn": 142,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "a\" />\n    <meta property=\"og:description\" content=\"Študujem aplikovanú informatiku. Zaujíma ma umelá inteligencia, čínske čaje a svet okolo mňa.\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 138
+    },
+    {
+      "type": "info",
+      "lastLine": 10,
+      "lastColumn": 66,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ".\" />\n    <meta property=\"og:image\" content=\"img/portrait-sketch.png\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 62
+    },
+    {
+      "type": "info",
+      "lastLine": 11,
+      "lastColumn": 59,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "g\" />\n    <link rel=\"icon\" href=\"favicon.png\" type=\"image/png\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 55
+    },
+    {
+      "type": "info",
+      "lastLine": 12,
+      "lastColumn": 51,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "g\" />\n    <link rel=\"stylesheet\" href=\"css/styles.css\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 47
+    },
+    {
+      "type": "info",
+      "lastLine": 39,
+      "lastColumn": 43,
+      "firstColumn": 38,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "itle\">Ilia<br />Liubot",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    },
+    {
+      "type": "info",
+      "lastLine": 47,
+      "lastColumn": 127,
+      "firstColumn": 9,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ">\n        <img class=\"profile-photo\" src=\"img/me.jpg\" alt=\"Moja portrétna fotografia\" width=\"850\" height=\"1134\" loading=\"lazy\" />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 119
+    },
+    {
+      "type": "info",
+      "lastLine": 71,
+      "lastColumn": 50,
+      "firstColumn": 45,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "je pre mňa<br />chvíľa",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    },
+    {
+      "type": "info",
+      "lastLine": 78,
+      "lastColumn": 84,
+      "firstColumn": 79,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "il.com</a><br />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    }
+  ]
+}
+
+pages/cv.html
+Validator: https://validator.w3.org/nu/?out=json
+
+{
+  "version": "26.10.7",
+  "messages": [
+    {
+      "type": "info",
+      "lastLine": 4,
+      "lastColumn": 28,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "head>\n    <meta charset=\"UTF-8\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 24
+    },
+    {
+      "type": "info",
+      "lastLine": 5,
+      "lastColumn": 76,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 72
+    },
+    {
+      "type": "info",
+      "lastLine": 7,
+      "lastColumn": 172,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "itle>\n    <meta name=\"description\" content=\"Môj životopis: štúdium aplikovanej informatiky na FEI STU, stáž Erasmus+ v Turecku, programátorské skúsenosti a jazykové znalosti.\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 168
+    },
+    {
+      "type": "info",
+      "lastLine": 8,
+      "lastColumn": 68,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ".\" />\n    <meta property=\"og:title\" content=\"Životopis | Ilia Liubotin\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 64
+    },
+    {
+      "type": "info",
+      "lastLine": 9,
+      "lastColumn": 129,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "n\" />\n    <meta property=\"og:description\" content=\"Moje vzdelanie, skúsenosti s vývojom webu a stáže, technické zručnosti a záujmy.\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 125
+    },
+    {
+      "type": "info",
+      "lastLine": 10,
+      "lastColumn": 69,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": ".\" />\n    <meta property=\"og:image\" content=\"../img/portrait-sketch.png\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 65
+    },
+    {
+      "type": "info",
+      "lastLine": 11,
+      "lastColumn": 62,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "g\" />\n    <link rel=\"icon\" href=\"../favicon.png\" type=\"image/png\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 58
+    },
+    {
+      "type": "info",
+      "lastLine": 12,
+      "lastColumn": 54,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "g\" />\n    <link rel=\"stylesheet\" href=\"../css/styles.css\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 50
+    },
+    {
+      "type": "info",
+      "lastLine": 13,
+      "lastColumn": 53,
+      "firstColumn": 5,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "s\" />\n    <link rel=\"stylesheet\" href=\"../css/print.css\" />\n    <",
+      "hiliteStart": 10,
+      "hiliteLength": 49
+    },
+    {
+      "type": "info",
+      "lastLine": 43,
+      "lastColumn": 127,
+      "firstColumn": 11,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "          <img class=\"cv-photo\" src=\"../img/me.jpg\" alt=\"Moja portrétna fotografia\" width=\"850\" height=\"1134\" loading=\"lazy\" />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 117
+    },
+    {
+      "type": "info",
+      "lastLine": 49,
+      "lastColumn": 90,
+      "firstColumn": 85,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "il.com</a><br />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    },
+    {
+      "type": "info",
+      "lastLine": 50,
+      "lastColumn": 68,
+      "firstColumn": 63,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "60 193</a><br />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    },
+    {
+      "type": "info",
+      "lastLine": 113,
+      "lastColumn": 84,
+      "firstColumn": 79,
+      "message": "Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.",
+      "extract": "il.com</a><br />\n     ",
+      "hiliteStart": 10,
+      "hiliteLength": 6
+    }
+  ]
+}

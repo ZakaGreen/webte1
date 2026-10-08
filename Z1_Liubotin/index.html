@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil | Ilia Liubotin</title>
+    <!-- Description for search results -->
+    <meta name="description" content="Profil študenta aplikovanej informatiky Ilii Liubotina." />
+    <!-- Title for shared links -->
+    <meta property="og:title" content="Ilia Liubotin | Profil" />
+    <!-- Description for shared links -->
+    <meta property="og:description" content="Na tejto stránke predstavujem seba, svoje štúdium a záujmy." />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Preskočiť na obsah</a>
+    <header class="site-header container">
+      <!-- Homepage anchor: href sets the destination and aria-label names the link for screen readers -->
+      <a class="monogram" href="index.html" aria-label="Ilia Liubotin – profil">IL</a>
+      <!-- Groups the site name and slogan -->
+      <div>
+        <p class="site-name">Ilia Liubotin</p>
+        <p class="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
+      </div>
+    </header>
+
+    <!-- Navigation area with links to the site pages -->
+    <nav class="site-nav container" aria-label="Hlavná navigácia">
+      <!-- button performs an action: shows or hides the menu list -->
+      <!-- aria-expanded reports menu state; aria-controls identifies the list; hidden hides the button until JS is ready -->
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-list" hidden>
+        <span aria-hidden="true">☰</span> Menu
+      </button>
+      <!-- a links navigate to pages; ul and li organize them into a list -->
+      <ul class="nav-list" id="nav-list">
+        <li><a href="index.html" aria-current="page">Profil</a></li>
+        <li><a href="pages/cv.html">Životopis</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="container">
+      <section class="hero" aria-labelledby="profile-title">
+        <div class="hero-text">
+          <p class="eyebrow">Študent aplikovanej informatiky</p>
+          <h1 id="profile-title">Ilia<br />Liubotin.</h1>
+          <p>Programujem, učím sa a skúmam možnosti umelej inteligencie. Svoje nápady mením na malé projekty.</p>
+          <a class="button" href="pages/cv.html">Môj životopis <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="about section-space" aria-labelledby="about-title">
+        <h2 id="about-title">Zvedavosť ma posúva ďalej.</h2>
+        <img class="profile-photo" src="img/me.jpg" alt="Moja portrétna fotografia" width="850" height="1134" loading="lazy" />
+        <p>Som Ilia a študujem aplikovanú informatiku na FEI STU v Bratislave. Najviac ma zaujíma programovanie a umelá inteligencia. Matematiku vnímam ako dôležitý základ pre obe oblasti. Zatiaľ získavam skúsenosti najmä cez školské zadania a projekty. Vytvoril som aj Telegram bota a niekoľko menších AI projektov. Počas stáže Erasmus+ v Turecku som si vyskúšal frontend, backend aj prácu s databázami.</p>
+        <p>Mimo programovania rád cestujem a spoznávam nové miesta. Už šesť rokov sa venujem čínskym čajom: všímam si ich chuť, skúšam ju opísať a pripravujem čajové ceremónie pre seba a priateľov. Pri čaji rád spomalím a meditujem. Zaujíma ma aj ekonomika a od roku 2022 sa venujem dlhodobému investovaniu. Chcem ďalej rozvíjať svoje programátorské schopnosti a tvoriť užitočné projekty.</p>
+      </section>
+
+      <section class="section-space" aria-labelledby="interests-title">
+        <h2 id="interests-title">Tri veci, ktoré ma vystihujú.</h2>
+        <ul class="interests">
+          <li>
+            <h3>Programovanie a AI</h3>
+            <p>Učím sa cez vlastné aj školské projekty. Baví ma prepájať kód, matematiku a praktické nápady.</p>
+          </li>
+          <li>
+            <h3>Čajová kultúra</h3>
+            <p>V čaji hľadám chuť, sústredenie a pokoj. Ceremónie pripravujem pre radosť, pre seba a priateľov.</p>
+          </li>
+          <li>
+            <h3>Ekonomika a investovanie</h3>
+            <p>Zaujíma ma fungovanie ekonomiky. Investujem dlhodobo s cieľom vytvoriť si rezervu do budúcnosti.</p>
+          </li>
+        </ul>
+      </section>
+
+      <aside class="motto" aria-label="Moje motto">
+        <p class="motto-text">Čaj je pre mňa<br />chvíľa pokoja.</p>
+        <p>Spomaliť. Vnímať. Byť tu.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer container">
+      <address>
+        <a href="mailto:ilushkalubotin@gmail.com">ilushkalubotin@gmail.com</a><br />
+        <a href="tel:+421952060193">+421 952 060 193</a> · Bratislava, Slovensko
+      </address>
+      <p>2026</p>
+    </footer>
+  </body>
+</html>
