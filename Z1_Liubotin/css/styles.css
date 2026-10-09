@@ -279,6 +279,84 @@ address {
   z-index: 1;
 }
 
+/* Percent coordinates follow the image as it resizes. */
+.workspace .section-space {
+  padding-bottom: 0;
+}
+
+.workspace + .site-footer {
+  margin-top: 1rem;
+}
+
+.hotspot-image {
+  position: relative;
+  margin: 2rem 0 0;
+}
+
+.hotspot-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.hotspot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+}
+
+.hotspot-dot {
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--color-text);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.hotspot-panel, .hotspot-hint {
+  position: absolute;
+  padding: var(--space);
+  border: 1px solid var(--color-border);
+  background: var(--color-brand-dark);
+  font-size: 0.9rem;
+}
+
+.hotspot-panel {
+  bottom: 100%;
+  left: 0;
+  width: 18rem;
+  visibility: hidden;
+}
+
+.hotspot-panel h2 {
+  font-size: 1.1rem;
+}
+
+.hotspot-panel p {
+  margin: 0;
+}
+
+.hotspot--left .hotspot-panel {
+  left: auto;
+  right: 0;
+}
+
+.hotspot:focus-within {
+  z-index: 1;
+}
+
+.hotspot:focus-within .hotspot-panel {
+  visibility: visible;
+}
+
+.hotspot-hint {
+  display: none;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 3rem;
@@ -294,6 +372,11 @@ address {
 
   .menu-ready .nav-list.is-open {
     display: flex;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
   }
 
   .hero {
@@ -326,6 +409,40 @@ address {
 
   .cv-sidebar, .cv-content {
     width: 100%;
+  }
+
+  /* All descriptions share one reserved area below the image. */
+  .hotspot-image {
+    margin-bottom: 15rem;
+  }
+
+  .hotspot {
+    position: static;
+    transform: none;
+  }
+
+  .hotspot-dot {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    transform: translate(-50%, -50%);
+  }
+
+  .hotspot-image .hotspot-panel, .hotspot-hint {
+    top: 100%;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    height: 14rem;
+    overflow: auto;
+  }
+
+  .hotspot-hint {
+    display: block;
+  }
+
+  .hotspot-image:focus-within .hotspot-hint {
+    visibility: hidden;
   }
 }
 

@@ -1,0 +1,16 @@
+index.html: no HTML parsing errors (html5lib).
+pages/cv.html: no HTML parsing errors (html5lib).
+pages/workspace.html: no HTML parsing errors (html5lib).
+css/styles.css: no CSS parsing errors (tinycss2).
+css/print.css: no CSS parsing errors (tinycss2).
+Local parsing checks are not official W3C validation. Existing W3C reports predate workspace.html.
+
+Chrome 155.0.8059.39: PASS at 1440, 900, 769, 768, 390 and 320 px, with and without JavaScript.
+PASS: all five descriptions open by click and keyboard; exactly one panel visible.
+PASS: click on image background closes desktop panel; leaving the image restores mobile hint.
+PASS: mobile panels share one 224px area below image; footer position does not change.
+PASS: no horizontal overflow; five touch taps open the corresponding descriptions.
+PASS: three navigation links on each page; local links resolve.
+PASS: no JavaScript errors.
+Desktop and mobile screenshots visually inspected.
+Firefox interaction has not been checked in this update.
