@@ -11,15 +11,15 @@
     <!-- Description for shared links -->
     <meta property="og:description" content="Na tejto stránke predstavujem seba, svoje štúdium a záujmy." />
     <meta property="og:image" content="https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/img/portrait-sketch.png" />
-    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="icon" href="favicon.png" />
     <link rel="stylesheet" href="css/styles.css?v=20261011-1" />
     <script src="js/script.js?v=20261011-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
-      <!-- Homepage anchor: href sets the destination and aria-label names the link for screen readers -->
-      <a class="monogram" href="index.html" aria-label="Ilia Liubotin – profil">IL</a>
+      <!-- Homepage link -->
+      <a class="monogram" href="index.html">IL</a>
       <!-- Groups the site name and slogan -->
       <div>
         <p class="site-name">Ilia Liubotin</p>
@@ -28,10 +28,10 @@
     </header>
 
     <!-- Navigation area with links to the site pages -->
-    <nav class="site-nav container" aria-label="Hlavná navigácia">
+    <nav class="site-nav container">
       <!-- button performs an action: shows or hides the menu list -->
       <!-- hidden hides the button until JavaScript is ready -->
-      <button class="menu-toggle" type="button" hidden>
+      <button class="menu-toggle" hidden>
         <span>☰</span> Menu
       </button>
       <!-- a links navigate to pages; ul and li organize them into a list -->
@@ -48,21 +48,21 @@
       <section class="hero">
         <div class="hero-text">
           <p class="eyebrow">Študent aplikovanej informatiky</p>
-          <h1 id="profile-title">Ilia<br />Liubotin.</h1>
+          <h1>Ilia<br />Liubotin.</h1>
           <p>Programujem, učím sa a skúmam možnosti umelej inteligencie. Svoje nápady mením na malé projekty.</p>
           <a class="button" href="pages/cv.html">Môj životopis <span>↗</span></a>
         </div>
       </section>
 
       <section class="about section-space">
-        <h2 id="about-title">Zvedavosť ma posúva ďalej.</h2>
+        <h2>Zvedavosť ma posúva ďalej.</h2>
         <img class="profile-photo" src="img/me.png?v=20261011-1" alt="Môj portrét v štýle kresby ceruzkou" width="1086" height="1448" loading="lazy" />
         <p>Som Ilia a študujem aplikovanú informatiku na FEI STU v Bratislave. Najviac ma zaujíma programovanie a umelá inteligencia. Matematiku vnímam ako dôležitý základ pre obe oblasti. Zatiaľ získavam skúsenosti najmä cez školské zadania a projekty. Vytvoril som aj Telegram bota a niekoľko menších AI projektov. Počas stáže Erasmus+ v Turecku som si vyskúšal frontend, backend aj prácu s databázami.</p>
         <p>Mimo programovania rád cestujem a spoznávam nové miesta. Už šesť rokov sa venujem čínskym čajom: všímam si ich chuť, skúšam ju opísať a pripravujem čajové ceremónie pre seba a priateľov. Pri čaji rád spomalím a meditujem. Zaujíma ma aj ekonomika a od roku 2022 sa venujem dlhodobému investovaniu. Chcem ďalej rozvíjať svoje programátorské schopnosti a tvoriť užitočné projekty.</p>
       </section>
 
       <section class="section-space">
-        <h2 id="interests-title">Tri veci, ktoré ma vystihujú.</h2>
+        <h2>Tri veci, ktoré ma vystihujú.</h2>
         <ul class="interests">
           <li>
             <h3>Programovanie a AI</h3>
@@ -79,7 +79,7 @@
         </ul>
       </section>
 
-      <aside class="motto" aria-label="Moje motto">
+      <aside class="motto">
         <p class="motto-text">Čaj je pre mňa<br />chvíľa pokoja.</p>
         <p>Spomaliť. Vnímať. Byť tu.</p>
       </aside>

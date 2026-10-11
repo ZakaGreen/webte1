@@ -69,7 +69,7 @@ a {
   color: inherit;
 }
 
-a:focus-visible, button:focus-visible, .map-controls select:focus-visible, .map-controls input:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible, .map-controls select:focus-visible, .map-controls input:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 5px;
 }
@@ -310,6 +310,11 @@ address {
 }
 
 .hotspot-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  cursor: pointer;
   width: 2rem;
   height: 2rem;
   padding: 0;
@@ -317,6 +322,10 @@ address {
   border-radius: 50%;
   background: var(--color-bg);
   color: var(--color-text);
+}
+
+.hotspot-dot::-webkit-details-marker {
+  display: none;
 }
 
 .hotspot-panel, .hotspot-hint {
@@ -347,11 +356,11 @@ address {
   right: 0;
 }
 
-.hotspot:focus-within {
+.hotspot[open] {
   z-index: 1;
 }
 
-.hotspot:focus-within .hotspot-panel {
+.hotspot[open] .hotspot-panel {
   visibility: visible;
 }
 
@@ -562,7 +571,7 @@ progress {
 
   /* All descriptions share one reserved area below the image. */
   .hotspot-image {
-    margin-bottom: 15rem;
+    margin-bottom: 12rem;
   }
 
   .hotspot {
@@ -582,7 +591,9 @@ progress {
     bottom: auto;
     left: 0;
     width: 100%;
-    height: 14rem;
+    height: 11rem;
+    padding: 0.75rem;
+    line-height: 1.5;
     overflow: auto;
   }
 
@@ -590,7 +601,7 @@ progress {
     display: block;
   }
 
-  .hotspot-image:focus-within .hotspot-hint {
+  .hotspot[open] ~ .hotspot-hint {
     visibility: hidden;
   }
 }

@@ -8,7 +8,7 @@
     <meta property="og:title" content="Kde ma nájdete | Ilia Liubotin" />
     <meta property="og:description" content="Môj domov, škola a vzdialenosti od vašich bodov na mape." />
     <meta property="og:image" content="https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/img/star-sketch.png" />
-    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="icon" href="../favicon.png" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="../css/styles.css?v=20261011-1" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
@@ -17,15 +17,15 @@
   <body>
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
-      <a class="monogram" href="../index.html" aria-label="Ilia Liubotin – profil">IL</a>
+      <a class="monogram" href="../index.html">IL</a>
       <div>
         <p class="site-name">Ilia Liubotin</p>
         <p class="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
       </div>
     </header>
 
-    <nav class="site-nav container" aria-label="Hlavná navigácia">
-      <button class="menu-toggle" type="button" hidden>
+    <nav class="site-nav container">
+      <button class="menu-toggle" hidden>
         <span>☰</span> Menu
       </button>
       <ul class="nav-list" id="nav-list">
@@ -41,28 +41,28 @@
       <section class="section-space">
         <h1>Kde ma nájdete</h1>
         <p>Dochádzam zo ŠD Mladosť na FEI STU.</p>
-        <div id="map" role="region" aria-label="Mapa môjho domova a školy"></div>
+        <div id="map"></div>
         <form id="map-add" class="map-controls">
-          <label for="map-name">Názov bodu
-            <input id="map-name" type="text" required />
+          <label>Názov bodu
+            <input id="map-name" required />
           </label>
-          <button class="button" type="submit">Pridať bod</button>
+          <button class="button">Pridať bod</button>
           <button id="map-reset" class="button" type="button">Vymazať body</button>
         </form>
-        <p id="map-message" role="status">Na zobrazenie mapy je potrebný JavaScript a pripojenie na internet.</p>
+        <p id="map-message">Na zobrazenie mapy je potrebný JavaScript a pripojenie na internet.</p>
 
         <h2>Vzdialenosť</h2>
         <div class="map-controls">
-          <label for="map-point">Bod
+          <label>Bod
             <select id="map-point" disabled>
-              <option value="" selected>-</option>
+              <option value="">-</option>
             </select>
           </label>
-          <label for="map-target">Cieľ
+          <label>Cieľ
             <select id="map-target" disabled></select>
           </label>
         </div>
-        <p id="map-distance" role="status" hidden></p>
+        <p id="map-distance" hidden></p>
       </section>
     </main>
 

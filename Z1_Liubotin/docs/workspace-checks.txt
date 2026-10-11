@@ -1,16 +1,20 @@
-index.html: no HTML parsing errors (html5lib).
-pages/cv.html: no HTML parsing errors (html5lib).
-pages/workspace.html: no HTML parsing errors (html5lib).
-css/styles.css: no CSS parsing errors (tinycss2).
-css/print.css: no CSS parsing errors (tinycss2).
-Local parsing checks are not official W3C validation. Existing W3C reports predate workspace.html.
+Workspace mobile fix, 2026-10-11
 
-Chrome 155.0.8059.39: PASS at 1440, 900, 769, 768, 390 and 320 px, with and without JavaScript.
-PASS: all five descriptions open by click and keyboard; exactly one panel visible.
-PASS: click on image background closes desktop panel; leaving the image restores mobile hint.
-PASS: mobile panels share one 224px area below image; footer position does not change.
-PASS: no horizontal overflow; five touch taps open the corresponding descriptions.
-PASS: three navigation links on each page; local links resolve.
-PASS: no JavaScript errors.
-Desktop and mobile screenshots visually inspected.
-Firefox interaction has not been checked in this update.
+PASS: pages/workspace.html parses without HTML errors (html5lib).
+PASS: css/styles.css parses without stylesheet errors (tinycss2).
+Local parsing is not official W3C validation.
+
+Chrome browser with viewport widths 320, 375, 768 and 900 px:
+PASS: all five points open the correct description by click.
+PASS: exactly one details element is open after each selection.
+PASS: mobile panels share a 176px area below the image.
+PASS: footer position stays constant while switching descriptions.
+PASS: all descriptions fit; no horizontal page overflow.
+PASS: Enter opens, Space closes, Tab moves to the next point.
+PASS: closing the selected point restores the mobile hint without moving the footer.
+Desktop: close the current popup before clicking a point it covers, or use the keyboard.
+Mobile screenshot visually inspected.
+
+The interaction uses native details/summary and CSS, without JavaScript handlers.
+This update was not tested on a physical iPhone or in Safari.
+Viewport testing in Chrome does not emulate Safari or touch input.

@@ -1,24 +1,25 @@
-# Moja online vizitka
+# Moja online vizitka — WEBTE1, zadanie 1
 
-Ilia Liubotin — WEBTE1, FEI STU, 2026/2027.
+Autor: Ilia Liubotin, FEI STU, Aplikovaná informatika (API), 3. ročník, 2026/2027.
 
-Web obsahuje profil, životopis, interaktívny obrázok môjho miesta na učenie pri okne, rozvrh s osobným režimom a mapu domova a školy. Predstavujem svoje štúdium, skúsenosti zo stáže Erasmus+ a záujmy: programovanie a AI, čajovú kultúru a investovanie. Životopis má aj štýl pre tlač na A4.
+Web na školskom serveri: https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/
 
-## Spustenie
-
-Web používa iba HTML, CSS a JavaScript, nevyžaduje inštaláciu ani zostavenie. Pre celú stránku vrátane ukladania bodov mapy použite školský server alebo lokálny HTTP server: v tomto priečinku spustite `python3 -m http.server 8000` a otvorte `http://localhost:8000/`. Mapa potrebuje internet. Body sa ukladajú iba v danom prehliadači a na danej adrese webu.
+Na webe predstavujem svoje štúdium, skúsenosti zo stáže Erasmus+ a záujmy: programovanie a AI, čínsky čaj a investovanie. Obsahuje profil, životopis s tlačovým štýlom, interaktívny obrázok môjho pracovného miesta, rozvrh a mapu domova a školy.
 
 ## Zdroje
 
-- Päť ilustrácií vrátane kresleného portrétu poskytol Ilia Liubotin ako podklady pre tento web. Sú uložené v priečinku `img/`.
-- Životopis a údaje o stáži vychádzajú z poskytnutého CV, certifikátu Erasmus+ a osobných informácií autora. Súkromné PDF dokumenty nie sú súčasťou webu.
-- Písmo Noto Serif: Google, licencia SIL Open Font License 1.1. Lokálne súbory WOFF2 vznikli konverziou nainštalovaných TTF súborov; licenčné oznámenie je v `fonts/LICENSE.txt`.
-- Monogram IL a favicon boli vytvorené pre tento web.
-- Rozvrh vychádza z osobného rozvrhu v AIS a poskytnutého kalendára semestra. Rozdelenie predmetov, osobný režim a dátumy potvrdil autor.
-- Mapa vychádza z príkladu `zadanie3/`: [Leaflet 1.9.4](https://leafletjs.com/) a podklady [OpenStreetMap](https://www.openstreetmap.org/copyright). Súradnice FEI STU sú z príkladu; bod domova je [ŠD Mladosť](https://ubytovanieastravovanie.stuba.sk/sd-mladost). Vzdialenosť počíta vlastný Haversinov vzorec.
+- Fotografia, portréty a ilustrácie v `img/`: moje vlastné podklady dodané pre tento projekt; osobné údaje vychádzajú z môjho CV a certifikátu Erasmus+.
+- Rozvrh: môj rozvrh v AIS a harmonogram semestra FEI STU.
+- Mapa: príklad z cvičenia `zadanie3`, knižnica [Leaflet 1.9.4](https://leafletjs.com/) a mapové podklady [OpenStreetMap](https://www.openstreetmap.org/copyright). Domov predstavuje ŠD Mladosť, školu FEI STU.
+- Font: [Noto Serif](https://github.com/notofonts/noto-fonts), licencia SIL Open Font License 1.1; lokálne súbory WOFF2 a licencia sú v `fonts/`.
+- Monogram IL a favicon sú vytvorené pre tento web.
 
-Pri tvorbe HTML, CSS, JavaScriptu, textov a vysvetlení som použil OpenAI Codex; obsah a kód kontrolujem a učím sa vysvetliť.
+## Použitie AI
 
-Staršie výsledky W3C validácie prvých dvoch stránok a CSS sú v `docs/validator-html.txt` a `docs/validator-css.txt`. Výklad kódu v ruštine je v `docs/code-guide.md`, `docs/workspace-guide.md`, `docs/schedule-guide.md` a `docs/map-guide.md`. Lokálne kontroly nových stránok sú v `docs/workspace-checks.txt`, `docs/schedule-checks.txt` a `docs/map-checks.txt`; externú validáciu treba aktualizovať.
+OpenAI Codex som použil na vysvetlenie kódu, pomoc s implementáciou mojich nápadov a úpravy a opravy častí HTML, CSS a JavaScriptu.
 
-Adresa na školskom serveri: [https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/](https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/). Nové stránky rozvrhu a mapy a zmenené súbory treba nahrať do `public_html/Z1_Liubotin/`. Pred odovzdaním doplním študijný krúžok.
+## Spustenie a validácia
+
+Web nevyžaduje inštaláciu ani zostavenie. Dá sa spustiť na školskom serveri alebo lokálne príkazom `python3 -m http.server 8000` a otvorením `http://localhost:8000/`. Mapa potrebuje internet; pridané body sa ukladajú do localStorage daného prehliadača.
+
+Výstupy validátorov W3C sú v `docs/validator-html.txt` a `docs/validator-css.txt`.
