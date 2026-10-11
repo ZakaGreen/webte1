@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kde ma nájdete | Ilia Liubotin</title>
+    <meta name="description" content="Dochádzam zo ŠD Mladosť na FEI STU. Na mape si môžete pridať miesto a zistiť vzdialenosť k môjmu domovu alebo škole." />
+    <meta property="og:title" content="Kde ma nájdete | Ilia Liubotin" />
+    <meta property="og:description" content="Môj domov, škola a vzdialenosti od vašich bodov na mape." />
+    <meta property="og:image" content="https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/img/star-sketch.png" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="../js/script.js?v=4" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Preskočiť na obsah</a>
+    <header class="site-header container">
+      <a class="monogram" href="../index.html" aria-label="Ilia Liubotin – profil">IL</a>
+      <div>
+        <p class="site-name">Ilia Liubotin</p>
+        <p class="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
+      </div>
+    </header>
+
+    <nav class="site-nav container" aria-label="Hlavná navigácia">
+      <button class="menu-toggle" type="button" hidden>
+        <span>☰</span> Menu
+      </button>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="../index.html">Profil</a></li>
+        <li><a href="cv.html">Životopis</a></li>
+        <li><a href="workspace.html">Pracovné prostredie</a></li>
+        <li><a href="schedule.html">Kedy ma zastihnete</a></li>
+        <li><a href="map.html" aria-current="page">Kde ma nájdete</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="container map-page">
+      <section class="section-space">
+        <h1>Kde ma nájdete</h1>
+        <p>Dochádzam zo ŠD Mladosť na FEI STU.</p>
+        <div id="map" role="region" aria-label="Mapa môjho domova a školy"></div>
+        <form id="map-add" class="map-controls">
+          <label for="map-name">Názov bodu
+            <input id="map-name" type="text" required />
+          </label>
+          <button class="button" type="submit">Pridať bod</button>
+          <button id="map-reset" class="button" type="button">Vymazať body</button>
+        </form>
+        <p id="map-message" role="status">Na zobrazenie mapy je potrebný JavaScript a pripojenie na internet.</p>
+
+        <h2>Vzdialenosť</h2>
+        <div class="map-controls">
+          <label for="map-point">Bod
+            <select id="map-point" disabled>
+              <option value="" selected>-</option>
+            </select>
+          </label>
+          <label for="map-target">Cieľ
+            <select id="map-target" disabled></select>
+          </label>
+        </div>
+        <p id="map-distance" role="status" hidden></p>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <address>
+        <a href="mailto:ilushkalubotin@gmail.com">ilushkalubotin@gmail.com</a><br />
+        <a href="tel:+421952060193">+421 952 060 193</a> · Bratislava, Slovensko
+      </address>
+      <p>2026</p>
+    </footer>
+  </body>
+</html>

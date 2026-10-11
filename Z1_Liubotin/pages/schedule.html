@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kedy ma zastihnete | Ilia Liubotin</title>
+    <meta name="description" content="Môj týždenný rozvrh na FEI STU, osobný režim a čas na stretnutie po dohode." />
+    <meta property="og:title" content="Kedy ma zastihnete | Ilia Liubotin" />
+    <meta property="og:description" content="Moje prednášky, cvičenia a voľné okná medzi 8:00 a 19:00." />
+    <meta property="og:image" content="https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/img/tea-sketch.png" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Preskočiť na obsah</a>
+    <header class="site-header container">
+      <a class="monogram" href="../index.html" aria-label="Ilia Liubotin – profil">IL</a>
+      <div>
+        <p class="site-name">Ilia Liubotin</p>
+        <p class="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
+      </div>
+    </header>
+
+    <nav class="site-nav container" aria-label="Hlavná navigácia">
+      <button class="menu-toggle" type="button" hidden>
+        <span>☰</span> Menu
+      </button>
+      <ul class="nav-list" id="nav-list">
+        <li><a href="../index.html">Profil</a></li>
+        <li><a href="cv.html">Životopis</a></li>
+        <li><a href="workspace.html">Pracovné prostredie</a></li>
+        <li><a href="schedule.html" aria-current="page">Kedy ma zastihnete</a></li>
+        <li><a href="map.html">Kde ma nájdete</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="container schedule-page">
+      <section class="section-space">
+        <h1 id="schedule-title">Kedy ma zastihnete</h1>
+        <p>Vstávam o 5:00 a ráno začínam pomaly. Od 8:00 do 19:00 sa môžeme dohodnúť na stretnutí, ak práve nemám vyučovanie. O 19:00 sa začínam pripravovať na spánok a o 21:00 už spím.</p>
+
+        <h2>Týždenný rozvrh</h2>
+        <p id="schedule-status">Aktuálnu a najbližšiu hodinu zobrazí JavaScript.</p>
+        <div class="schedule-filters" id="schedule-filters" aria-label="Filter rozvrhu" hidden>
+          <button type="button" data-filter="all" aria-pressed="true">Všetko</button>
+          <button type="button" data-filter="lecture" aria-pressed="false">Prednášky</button>
+          <button type="button" data-filter="exercise" aria-pressed="false">Cvičenia</button>
+        </div>
+        <p id="filter-message" role="status" hidden>Pre tento filter nemám žiadne hodiny.</p>
+
+        <div class="table-scroll" id="schedule-scroll" role="region" aria-label="Týždenný rozvrh, na úzkej obrazovke posúvateľný do strán" tabindex="0">
+          <table class="schedule-table" id="schedule">
+            <caption>7:00–21:00 · Každý stĺpec predstavuje jednu hodinu.</caption>
+            <thead>
+              <tr>
+                <th>Deň</th>
+                <th>7:00</th>
+                <th>8:00</th>
+                <th>9:00</th>
+                <th>10:00</th>
+                <th>11:00</th>
+                <th>12:00</th>
+                <th>13:00</th>
+                <th>14:00</th>
+                <th>15:00</th>
+                <th>16:00</th>
+                <th>17:00</th>
+                <th>18:00</th>
+                <th>19:00</th>
+                <th>20:00</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-day="1">
+                <th>Pondelok</th>
+                <td data-type="personal">Ranný režim</td>
+                <td data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="exercise" data-start="540" data-end="650"><strong>Web.Tech.1</strong><br />c137</td>
+                <td colspan="2" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="exercise" data-start="780" data-end="890"><strong>Operačné systémy</strong><br />cpu-c</td>
+                <td colspan="2" data-type="lecture" data-start="900" data-end="1010"><strong>Lineárna algebra 2</strong><br />cd300</td>
+                <td colspan="2" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="2">
+                <th>Utorok</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="2" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="lecture" data-start="600" data-end="710"><strong>Web.Tech.1</strong><br />cd150</td>
+                <td colspan="3" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="lecture" data-start="900" data-end="1010"><strong>S.W.I.</strong><br />cd300</td>
+                <td data-type="exercise" data-start="1020" data-end="1070"><strong>S.W.I.</strong><br />cd300</td>
+                <td data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="3">
+                <th>Streda</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="2" data-type="lecture" data-start="480" data-end="590"><strong>Operačné systémy</strong><br />cd300</td>
+                <td data-type="personal">Obed</td>
+                <td colspan="2" class="sport-lesson" data-type="exercise" data-start="660" data-end="770"><strong>Telesná kultúra 5</strong><br />ŠIP</td>
+                <td colspan="2" data-type="lecture" data-start="780" data-end="890"><strong>Web.Tech.1</strong><br />cd150</td>
+                <td colspan="4" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="4">
+                <th>Štvrtok</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="3" data-type="free">Čas po dohode</td>
+                <td data-type="exercise" data-start="660" data-end="710"><strong>S.W.I.</strong><br />c137</td>
+                <td colspan="7" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="5">
+                <th>Piatok</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="5" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="exercise" data-start="780" data-end="890"><strong>Lineárna algebra 2</strong><br />bc35</td>
+                <td colspan="4" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="6">
+                <th>Sobota</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="11" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+              <tr data-day="7">
+                <th>Nedeľa</th>
+                <td data-type="personal">Ranný režim</td>
+                <td colspan="11" data-type="free">Čas po dohode</td>
+                <td colspan="2" data-type="personal">Príprava na spánok</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="schedule-note">Tabuľka zobrazuje bežný týždeň. Zvýraznenie a najbližšia hodina zohľadňujú aj voľné dni a náhrady. Čas sa riadi hodinami zariadenia; rozvrh je uvedený v miestnom čase Bratislavy.</p>
+        <p>Rozvrh platí od 14. 9. do 20. 12. 2026. Seminár aj telesná kultúra patria do filtra Cvičenia.</p>
+
+        <h2>Priebeh semestra</h2>
+        <label>Obdobie výučby: 14. 9. – 13. 12. 2026</label>
+        <progress id="semester-progress" max="100" value="0" hidden>0 %</progress>
+        <p id="semester-status">Percento uplynutého obdobia zobrazí JavaScript.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <address>
+        <a href="mailto:ilushkalubotin@gmail.com">ilushkalubotin@gmail.com</a><br />
+        <a href="tel:+421952060193">+421 952 060 193</a> · Bratislava, Slovensko
+      </address>
+      <p>2026</p>
+    </footer>
+  </body>
+</html>

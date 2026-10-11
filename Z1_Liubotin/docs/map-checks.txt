@@ -1,0 +1,27 @@
+Map page checks — 2026-10-11, selectable empty origin
+
+Latest Chrome checks: PASS
+- The Bod selector displays a selectable '-' for the empty origin.
+- Selecting '-' after a measurement hides the distance and clears the line.
+- Marker popups return to names only, without the previous distance.
+- School and home remain on the map and in the selector after clearing.
+- Changing the destination with '-' selected does not start measuring.
+- Selecting an origin again restores measurement (school/home: 1.02 km).
+- Captured Chrome warning/error log: empty.
+
+Earlier Chrome checks in this session: PASS
+- The name input and both buttons stay visible below the map.
+- The Bod selector offers school and home immediately after loading.
+- Home to school and school to home both show 1.02 km.
+- Selecting school as both origin and destination shows 0.00 km.
+- Enter name, press Pridať bod, click map: exactly one point is added.
+- Adding a point does not automatically select it or draw a line.
+- Selecting the point and changing school/home updates distance and line.
+- Reload restores the point, with no point selected and no line drawn.
+- Vymazať body returns to the two permanent markers: school and home.
+- After resetting, school and home remain available in both selectors.
+- The temporary test point was removed after testing.
+- Captured Chrome warning/error log: empty.
+
+HTML parsing, JavaScript syntax and git diff --check: PASS.
+External W3C validation and Firefox testing were not performed here.

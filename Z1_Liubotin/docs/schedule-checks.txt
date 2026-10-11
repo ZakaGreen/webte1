@@ -1,0 +1,22 @@
+Schedule checks, 2026-10-09
+
+PASS: all four HTML pages parse without errors (html5lib).
+PASS: both stylesheets parse without errors (tinycss2).
+PASS: seven table rows each span 14 hourly columns, 07:00-21:00.
+PASS: eleven lessons retain their original times; five lectures and six exercises, including the seminar and sport lesson.
+PASS: 45 JavaScript checks using the actual script and lesson data extracted from HTML, with a simulated DOM and clock.
+Covered: start/end boundaries, all three days off, all four replacement days, weekends, next lessons, semester boundaries, progress limits, filters, empty results, minute refresh, pages without a timetable.
+Test timezone: Europe/Bratislava. Production code uses the visitor's device clock, as stated on the page.
+
+Chrome: desktop rendering and all three filters checked in the browser.
+PASS: filtering preserves the table width and leaves the correct lesson types visible.
+PASS: after simplification, Cvicenia shows six lessons including sport; lesson times remain in data attributes only.
+PASS: lecture cells use a dark gray background, exercises nearly black, sport a double gray border; no white cell backgrounds.
+PASS: Wednesday 10:00-11:00 is Obed; measured gap before the footer is 16px.
+PASS: horizontal table scrolling with keyboard at a 390px viewport; page itself has no horizontal overflow.
+PASS: 320px viewport has no horizontal page overflow; mobile menu opens all four links and closes.
+Source review independently checked dates, filters and table column spans.
+
+These are local checks, not official W3C validation.
+Existing W3C reports predate this page and must be refreshed before submission.
+Firefox was not tested in this update.
