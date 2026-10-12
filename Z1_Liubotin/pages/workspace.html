@@ -13,6 +13,7 @@
     <script src="../js/script.js?v=20261011-1" defer></script>
   </head>
   <body>
+    <!-- Accessibility bonus: Keyboard navigation to the main content. -->
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
       <a class="monogram" href="../index.html">IL</a>
@@ -23,9 +24,8 @@
     </header>
 
     <nav class="site-nav container">
-      <button class="menu-toggle" hidden>
-        <span>☰</span> Menu
-      </button>
+      <!-- Accessibility bonus: Keyboard control of the mobile menu. -->
+      <button class="menu-toggle" hidden>☰ Menu</button>
       <ul class="nav-list" id="nav-list">
         <li><a href="../index.html">Profil</a></li>
         <li><a href="cv.html">Životopis</a></li>
@@ -41,9 +41,12 @@
         <p>Najradšej sa učím a programujem na širokom parapete. Mám tu notebook, čaj a svojho kocúra. Kliknite na očíslovaný bod alebo ho vyberte klávesom Tab a otvorte klávesom Enter.</p>
 
         <figure class="hotspot-image">
+          <!-- Accessibility bonus: Meaningful image alternative. -->
           <img src="../img/workspace.png" alt="Sedím s notebookom a kocúrom na širokom parapete. Vľavo mám čajovú dosku a za oknom je výhľad na mesto." width="1672" height="941" />
 
+          <!-- Accessibility bonus: Native details and summary make hotspots keyboard operable. -->
           <details name="workspace" class="hotspot hotspot--left" style="--x: 63%; --y: 56%">
+            <!-- The browser makes summary clickable to open or close details. -->
             <summary class="hotspot-dot">1</summary>
             <div class="hotspot-panel">
               <h2>Notebook</h2>

@@ -13,6 +13,7 @@
     <script src="../js/script.js?v=20261011-1" defer></script>
   </head>
   <body>
+    <!-- Accessibility bonus: Keyboard navigation to the main content. -->
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
       <a class="monogram" href="../index.html">IL</a>
@@ -23,9 +24,8 @@
     </header>
 
     <nav class="site-nav container">
-      <button class="menu-toggle" hidden>
-        <span>☰</span> Menu
-      </button>
+      <!-- Accessibility bonus: Keyboard control of the mobile menu. -->
+      <button class="menu-toggle" hidden>☰ Menu</button>
       <ul class="nav-list" id="nav-list">
         <li><a href="../index.html">Profil</a></li>
         <li><a href="cv.html">Životopis</a></li>
@@ -42,16 +42,22 @@
 
         <h2>Týždenný rozvrh</h2>
         <p id="schedule-status">Aktuálnu a najbližšiu hodinu zobrazí JavaScript.</p>
+        <!-- Accessibility bonus: Native buttons keep filters keyboard operable. -->
         <div class="schedule-filters" id="schedule-filters" hidden>
           <button data-filter="all" aria-pressed="true">Všetko</button>
           <button data-filter="lecture" aria-pressed="false">Prednášky</button>
           <button data-filter="exercise" aria-pressed="false">Cvičenia</button>
         </div>
+        <!-- Shown when the selected filter finds no lessons. -->
         <p id="filter-message" hidden>Pre tento filter nemám žiadne hodiny.</p>
 
+        <!-- class table-scroll: CSS adds horizontal scrolling. -->
+        <!-- id schedule-scroll: JavaScript can hide the whole table. -->
+        <!-- Accessibility bonus: tabindex allows keyboard focus. -->
         <div class="table-scroll" id="schedule-scroll" tabindex="0">
+          <!-- class schedule-table: CSS styles the table. -->
+          <!-- id schedule: JavaScript finds the table. -->
           <table class="schedule-table" id="schedule">
-            <caption>7:00–21:00 · Každý stĺpec predstavuje jednu hodinu.</caption>
             <thead>
               <tr>
                 <th>Deň</th>

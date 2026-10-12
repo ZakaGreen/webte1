@@ -16,6 +16,7 @@
     <script src="js/script.js?v=20261011-1" defer></script>
   </head>
   <body>
+    <!-- Accessibility bonus: Keyboard navigation to the main content. -->
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
       <!-- Homepage link -->
@@ -31,9 +32,8 @@
     <nav class="site-nav container">
       <!-- button performs an action: shows or hides the menu list -->
       <!-- hidden hides the button until JavaScript is ready -->
-      <button class="menu-toggle" hidden>
-        <span>☰</span> Menu
-      </button>
+      <!-- Accessibility bonus: Keyboard control of the mobile menu. -->
+      <button class="menu-toggle" hidden>☰ Menu</button>
       <!-- a links navigate to pages; ul and li organize them into a list -->
       <ul class="nav-list" id="nav-list">
         <li><a href="index.html" aria-current="page">Profil</a></li>
@@ -50,12 +50,13 @@
           <p class="eyebrow">Študent aplikovanej informatiky</p>
           <h1>Ilia<br />Liubotin.</h1>
           <p>Programujem, učím sa a skúmam možnosti umelej inteligencie. Svoje nápady mením na malé projekty.</p>
-          <a class="button" href="pages/cv.html">Môj životopis <span>↗</span></a>
+          <a class="button" href="pages/cv.html">Môj životopis ↗</a>
         </div>
       </section>
 
       <section class="about section-space">
         <h2>Zvedavosť ma posúva ďalej.</h2>
+        <!-- Main task and accessibility bonus: Meaningful image alternative. -->
         <img class="profile-photo" src="img/me.png?v=20261011-1" alt="Môj portrét v štýle kresby ceruzkou" width="1086" height="1448" loading="lazy" />
         <p>Som Ilia a študujem aplikovanú informatiku na FEI STU v Bratislave. Najviac ma zaujíma programovanie a umelá inteligencia. Matematiku vnímam ako dôležitý základ pre obe oblasti. Zatiaľ získavam skúsenosti najmä cez školské zadania a projekty. Vytvoril som aj Telegram bota a niekoľko menších AI projektov. Počas stáže Erasmus+ v Turecku som si vyskúšal frontend, backend aj prácu s databázami.</p>
         <p>Mimo programovania rád cestujem a spoznávam nové miesta. Už šesť rokov sa venujem čínskym čajom: všímam si ich chuť, skúšam ju opísať a pripravujem čajové ceremónie pre seba a priateľov. Pri čaji rád spomalím a meditujem. Zaujíma ma aj ekonomika a od roku 2022 sa venujem dlhodobému investovaniu. Chcem ďalej rozvíjať svoje programátorské schopnosti a tvoriť užitočné projekty.</p>

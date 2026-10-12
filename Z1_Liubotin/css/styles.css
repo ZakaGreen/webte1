@@ -1,8 +1,10 @@
+/* ===== Shared styles ==================================================================== */
+
 @font-face {
-  font-family: "Noto Serif";
-  src: url("../fonts/noto-serif-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
+  font-family: "Noto Serif"; /* Gives the loaded font a name. */
+  src: url("../fonts/noto-serif-regular.woff2") format("woff2"); /* Sets the font file and its format. */
+  font-weight: 400; /* Defines the normal font weight. */
+  font-display: swap; /* Shows fallback text until the font loads. */
 }
 
 @font-face {
@@ -12,39 +14,40 @@
   font-display: swap;
 }
 
+/* Accessibility bonus: High-contrast colors keep text readable in the dark design. */
 :root {
-  --color-brand: #171717;
-  --color-brand-dark: #101010;
-  --color-accent: #ffffff;
-  --color-text: #f1f1f1;
-  --color-bg: #0b0b0b;
-  --color-muted: #b5b5b5;
-  --color-border: #484848;
-  --color-lecture: #252525;
-  --radius: 3px;
-  --space: 1rem;
+  --color-brand: #171717; /* Main brand color. */
+  --color-brand-dark: #101010; /* Darker brand color. */
+  --color-accent: #ffffff; /* Accent color. */
+  --color-text: #f1f1f1; /* Main text color. */
+  --color-bg: #0b0b0b; /* Page background. */
+  --color-muted: #b5b5b5; /* Secondary text color. */
+  --color-border: #484848; /* Borders and dividers. */
+  --color-lecture: #252525; /* Lecture cells. */
+  --radius: 3px; /* Corner rounding. */
+  --space: 1rem; /* Shared spacing: 1rem equals the root font size, usually 16px. */
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Includes padding and borders in the element size. */
 }
 
 body {
-  margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: "Noto Serif", serif;
-  line-height: 1.75;
+  margin: 0; /* Removes the browser's default space around the page. */
+  background: var(--color-bg); /* Uses the page background variable. */
+  color: var(--color-text); /* Uses the main text color variable. */
+  font-family: "Noto Serif", serif; /* Uses Noto Serif with a serif fallback. */
+  line-height: 1.75; /* Sets spacing between text lines. */
 }
 
 .container {
-  width: 90%;
-  max-width: 1120px;
+  width: 90%; /* Uses 90% of the parent width. */
+  max-width: 1120px; /* Prevents the container from becoming too wide. */
   margin: 0 auto;
 }
 
 h1, h2, h3, p {
-  margin: 0 0 var(--space);
+  margin: 0 0 var(--space); /* Top: 0; sides: 0; bottom: shared spacing. */
 }
 
 h1, h2, h3 {
@@ -52,7 +55,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 3.5rem; /* Sets the text size relative to the root font size. */
   font-weight: 400;
 }
 
@@ -69,19 +72,21 @@ a {
   color: inherit;
 }
 
+/* Accessibility bonus: Show a clear focus state for keyboard controls. */
 a:focus-visible, button:focus-visible, summary:focus-visible, .map-controls select:focus-visible, .map-controls input:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 5px;
+  outline: 2px solid var(--color-accent); /* Draws a visible focus line. */
+  outline-offset: 5px; /* Moves the focus outline away from the element. */
 }
 
 button {
-  font: inherit;
-  cursor: pointer;
+  font: inherit; /* Uses the surrounding text font settings. */
+  cursor: pointer; /* Shows a hand cursor over clickable buttons. */
 }
 
+/* Styles contact details inside HTML address elements. */
 address {
-  font-style: normal;
-  overflow-wrap: anywhere;
+  font-style: normal; /* Removes the browser's default italic style. */
+  overflow-wrap: anywhere; /* Wraps long contact text to prevent overflow. */
 }
 
 .eyebrow {
@@ -90,17 +95,17 @@ address {
 }
 
 .site-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space);
-  padding: 1.5rem 0;
+  display: flex; /* Places child elements in a flexible row. */
+  align-items: center; /* Centers the flex items vertically. */
+  gap: var(--space); /* Sets space between flex items. */
+  padding: 1.5rem 0; /* Adds inner space at the top and bottom. */
 }
 
 .monogram {
   padding: 0.3rem 0.65rem;
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-text); /* Adds a solid border around the element. */
   font-size: 1.6rem;
-  text-decoration: none;
+  text-decoration: none; /* Removes the link underline. */
 }
 
 .site-name {
@@ -115,17 +120,17 @@ address {
 }
 
 .site-nav {
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border); /* Adds a top dividing line. */
+  border-bottom: 1px solid var(--color-border); /* Adds a bottom dividing line. */
 }
 
 .nav-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Moves items to a new line when space runs out. */
   gap: 2rem;
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style: none; /* Removes the list bullets. */
 }
 
 .nav-list a, .schedule-filters button {
@@ -137,7 +142,7 @@ address {
 
 .nav-list a[aria-current="page"], .nav-list a:hover,
 .schedule-filters button[aria-pressed="true"], .schedule-filters button:hover {
-  border-bottom-color: var(--color-accent);
+  border-bottom-color: var(--color-accent); /* Changes only the bottom border color. */
 }
 
 .menu-toggle {
@@ -148,10 +153,13 @@ address {
   color: inherit;
 }
 
+/* ===== index.html ==================================================================== */
+
 .hero {
   display: flex;
   align-items: center;
-  min-height: 580px;
+  min-height: 580px; /* Sets the smallest allowed element height. */
+  /* Accessibility bonus: This background is decorative and conveys no content. */
   background: linear-gradient(to right, var(--color-bg), transparent 65%), url("../img/portrait-sketch.png") center / cover;
 }
 
@@ -164,7 +172,7 @@ address {
   display: inline-block;
   padding: 0.65rem 1.1rem;
   border: 1px solid var(--color-text);
-  border-radius: var(--radius);
+  border-radius: var(--radius); /* Rounds the element corners. */
   background: var(--color-brand-dark);
   color: var(--color-text);
   text-decoration: none;
@@ -181,11 +189,11 @@ address {
 }
 
 .profile-photo {
-  float: left;
+  float: left; /* Places the image left and lets text flow around it. */
   width: 150px;
-  height: auto;
+  height: auto; /* Preserves the image proportions. */
   margin: 0.4rem 1.8rem 1rem 0;
-  filter: grayscale(100%);
+  filter: grayscale(100%); /* Makes the image black and white. */
 }
 
 .interests {
@@ -197,16 +205,18 @@ address {
 }
 
 .interests li {
-  flex: 1;
+  flex: 1; /* Shares the available row space equally. */
 }
 
 .motto {
   padding: 3rem 2rem;
+  /* Accessibility bonus: This background is decorative and conveys no content. */
+  /* Center the image at the bottom and scale it to cover the whole aside. */
   background: url("../img/tea-sketch.png") center bottom / cover;
 }
 
 .motto-text {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem; /* Adds outside space below the element. */
   font-size: 1.5rem;
   line-height: 1.4;
 }
@@ -216,6 +226,8 @@ address {
   font-size: 0.9rem;
 }
 
+/* ===== cv.html ==================================================================== */
+
 .page-heading {
   padding: 2rem;
 }
@@ -223,7 +235,7 @@ address {
 /* Flexbox stretches both column backgrounds to the same height. */
 .cv-layout {
   display: flex;
-  margin-top: 2rem;
+  margin-top: 2rem; /* Adds outside space above the element. */
 }
 
 .cv-sidebar {
@@ -253,12 +265,14 @@ address {
 
 .cv-content ul {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 1.25rem; /* Adds inner space on the left. */
 }
+
+/* ===== Shared footer and accessibility ==================================================================== */
 
 .site-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Places flex items at opposite sides. */
   gap: 2rem;
   padding: 2rem 0;
   margin-top: 3rem;
@@ -267,10 +281,11 @@ address {
   font-size: 0.85rem;
 }
 
+/* Accessibility bonus: Show the skip link when it receives keyboard focus. */
 .skip-link {
-  position: absolute;
-  top: 0;
-  left: -10000px;
+  position: absolute; /* Positions the element outside the normal page flow. */
+  top: 0; /* Sets the distance from the top edge. */
+  left: -10000px; /* Moves the hidden link far outside the screen. */
   padding: var(--space);
   background: var(--color-text);
   color: var(--color-bg);
@@ -278,17 +293,21 @@ address {
 
 .skip-link:focus {
   left: var(--space);
-  z-index: 1;
+  z-index: 1; /* Places the focused link above normal content. */
 }
 
 /* Percent coordinates follow the image as it resizes. */
+/* ===== Shared subpage spacing ==================================================================== */
+
 .workspace .section-space, .schedule-page .section-space, .map-page .section-space {
-  padding-bottom: 0;
+  padding-bottom: 0; /* Removes inner space at the bottom. */
 }
 
 .workspace + .site-footer, .schedule-page + .site-footer, .map-page + .site-footer {
   margin-top: 1rem;
 }
+
+/* ===== workspace.html ==================================================================== */
 
 .hotspot-image {
   position: relative;
@@ -306,7 +325,7 @@ address {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Centers the hotspot on its coordinates. */
 }
 
 .hotspot-dot {
@@ -314,7 +333,7 @@ address {
   align-items: center;
   justify-content: center;
   list-style: none;
-  cursor: pointer;
+  cursor: pointer; /* Shows a hand cursor over the clickable hotspot. */
   width: 2rem;
   height: 2rem;
   padding: 0;
@@ -337,10 +356,10 @@ address {
 }
 
 .hotspot-panel {
-  bottom: 100%;
+  bottom: 100%; /* Places the panel above its hotspot. */
   left: 0;
   width: 18rem;
-  visibility: hidden;
+  visibility: hidden; /* Hides the panel without removing its box. */
 }
 
 .hotspot-panel h2 {
@@ -353,7 +372,7 @@ address {
 
 .hotspot--left .hotspot-panel {
   left: auto;
-  right: 0;
+  right: 0; /* Aligns the panel with the right edge. */
 }
 
 .hotspot[open] {
@@ -367,6 +386,8 @@ address {
 .hotspot-hint {
   display: none;
 }
+
+/* ===== schedule.html ==================================================================== */
 
 .schedule-filters {
   display: flex;
@@ -382,25 +403,21 @@ address {
 }
 
 .table-scroll {
-  overflow-x: auto;
+  overflow-x: auto; /* Adds horizontal scrolling when needed. */
 }
 
+/* Accessibility bonus: Show focus on the keyboard-scrollable table area. */
 .table-scroll:focus-visible {
   outline: 2px solid var(--color-accent);
 }
 
 .schedule-table {
   width: 100%;
-  min-width: 1000px;
-  table-layout: fixed;
-  border-collapse: collapse;
+  min-width: 1000px; /* Prevents the table from becoming too narrow. */
+  table-layout: fixed; /* Uses fixed column widths for the table. */
+  border-collapse: collapse; /* Merges touching table borders. */
   font-size: 0.8rem;
   line-height: 1.5;
-}
-
-.schedule-table caption {
-  padding-bottom: var(--space);
-  text-align: left;
 }
 
 .schedule-table th, .schedule-table td {
@@ -450,8 +467,10 @@ address {
 progress {
   display: block;
   width: 100%;
-  accent-color: var(--color-accent);
+  accent-color: var(--color-accent); /* Sets the native progress control color. */
 }
+
+/* ===== map.html ==================================================================== */
 
 #map {
   height: 400px;
@@ -480,7 +499,7 @@ progress {
 }
 
 #map .map-line {
-  stroke: var(--color-accent);
+  stroke: var(--color-accent); /* Sets the SVG line color. */
 }
 
 .map-controls {
@@ -504,7 +523,7 @@ progress {
 }
 
 #map-add .button {
-  align-self: end;
+  align-self: end; /* Aligns only this flex item at the end. */
 }
 
 .map-page p, #map .leaflet-popup-content {
@@ -514,6 +533,8 @@ progress {
 #map .leaflet-popup-content {
   max-width: 200px;
 }
+
+/* ===== Responsive styles ==================================================================== */
 
 @media (max-width: 768px) {
   h1 {
@@ -533,7 +554,7 @@ progress {
   }
 
   .nav-list {
-    flex-direction: column;
+    flex-direction: column; /* Stacks flex items vertically. */
     gap: 0;
   }
 
@@ -551,7 +572,7 @@ progress {
 
   .profile-photo {
     width: 100px;
-    margin-right: var(--space);
+    margin-right: var(--space); /* Adds outside space on the right. */
   }
 
   .interests, .cv-layout, .site-footer, .map-controls {
@@ -560,9 +581,9 @@ progress {
 
   .motto {
     padding: 2rem 1rem 13rem;
-    background-image: linear-gradient(var(--color-bg), transparent 70%), url("../img/tea-sketch.png");
-    background-position: right bottom;
-    background-size: auto 100%;
+    background-image: linear-gradient(var(--color-bg), transparent 70%), url("../img/tea-sketch.png"); /* Adds a gradient and background image. */
+    background-position: right bottom; /* Aligns the background to the bottom right. */
+    background-size: auto 100%; /* Fits the background to the full element height. */
   }
 
   .cv-sidebar, .cv-content {
@@ -594,7 +615,7 @@ progress {
     height: 11rem;
     padding: 0.75rem;
     line-height: 1.5;
-    overflow: auto;
+    overflow: auto; /* Adds scrolling when content does not fit. */
   }
 
   .hotspot-hint {
@@ -605,6 +626,8 @@ progress {
     visibility: hidden;
   }
 }
+
+/* ===== Shared utility styles ==================================================================== */
 
 [hidden] {
   display: none;

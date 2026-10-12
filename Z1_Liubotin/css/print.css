@@ -1,28 +1,28 @@
 @media print {
   @page {
-    size: A4;
-    margin: 12mm;
+    size: A4; /* Sets the printed paper size. */
+    margin: 12mm; /* Sets the page margins on all sides. */
   }
 
   body {
-    background: var(--color-accent);
-    color: var(--color-bg);
-    font-size: 9pt;
-    line-height: 1.4;
+    background: var(--color-accent); /* Uses a white background for printing. */
+    color: var(--color-bg); /* Uses dark text for printing. */
+    font-size: 9pt; /* Sets the printed text size in points. */
+    line-height: 1.4; /* Sets spacing between printed text lines. */
   }
 
   .site-header, .site-nav, .site-footer, .skip-link {
-    display: none;
+    display: none; /* Hides elements that should not be printed. */
   }
 
   .container {
-    width: 100%;
-    max-width: none;
+    width: 100%; /* Uses the full printable width. */
+    max-width: none; /* Removes the screen width limit. */
   }
 
   .page-heading, .cv-sidebar, .cv-content {
     background: none;
-    padding: 0;
+    padding: 0; /* Removes inner space on all sides. */
   }
 
   .page-heading h1 {
@@ -30,13 +30,13 @@
   }
 
   .cv-layout {
-    flex-direction: row;
+    flex-direction: row; /* Keeps the CV columns next to each other. */
     margin: 0;
   }
 
   .cv-sidebar {
     width: 30%;
-    padding-right: 6mm;
+    padding-right: 6mm; /* Adds inner space on the right. */
   }
 
   .cv-content {
@@ -45,7 +45,7 @@
 
   .cv-photo {
     width: 32mm;
-    margin-bottom: 4mm;
+    margin-bottom: 4mm; /* Adds outside space below the photo. */
   }
 
   .cv-layout h2 {
@@ -66,14 +66,14 @@
   }
 
   .cv-layout section + section, .cv-layout article + article {
-    margin-top: 3mm;
+    margin-top: 3mm; /* Adds outside space above following sections. */
   }
 
   .cv-layout section, .cv-layout article {
-    break-inside: avoid;
+    break-inside: avoid; /* Prevents a section from splitting across pages. */
   }
 
   a {
-    text-decoration: none;
+    text-decoration: none; /* Removes link underlines in print. */
   }
 }

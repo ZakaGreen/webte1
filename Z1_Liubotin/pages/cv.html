@@ -14,6 +14,7 @@
     <script src="../js/script.js?v=20261011-1" defer></script>
   </head>
   <body>
+    <!-- Accessibility bonus: Keyboard navigation to the main content. -->
     <a class="skip-link" href="#main">Preskočiť na obsah</a>
     <header class="site-header container">
       <a class="monogram" href="../index.html">IL</a>
@@ -24,9 +25,8 @@
     </header>
 
     <nav class="site-nav container">
-      <button class="menu-toggle" hidden>
-        <span>☰</span> Menu
-      </button>
+      <!-- Accessibility bonus: Keyboard control of the mobile menu. -->
+      <button class="menu-toggle" hidden>☰ Menu</button>
       <ul class="nav-list" id="nav-list">
         <li><a href="../index.html">Profil</a></li>
         <li><a href="cv.html" aria-current="page">Životopis</a></li>
@@ -43,6 +43,7 @@
 
       <div class="cv-layout">
         <div class="cv-sidebar">
+          <!-- Accessibility bonus: Meaningful image alternative. -->
           <img class="cv-photo" src="../img/me.png?v=20261011-1" alt="Môj portrét v štýle kresby ceruzkou" width="1086" height="1448" loading="lazy" />
           <h2>Ilia Liubotin</h2>
           <p>Študujem aplikovanú informatiku a zaujímam sa o vývoj softvéru a AI.</p>
