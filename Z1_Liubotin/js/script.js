@@ -150,7 +150,7 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
   ];
   let points = []; // Stores user-created map points.
   const markers = []; // Stores all Leaflet marker objects.
-  let addingPoint = false; // Tracks whether the next map click should add a point.
+  let addingPoint = false; // Tracks when the next map click should add a point.
 
   // Map setup follows the example from practice.
   const map = L.map('map').setView([48.151965, 17.072995], 15); // Creates the map with its initial center and zoom.
