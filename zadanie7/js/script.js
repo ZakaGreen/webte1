@@ -1,3 +1,20 @@
+const PROXY_URL = "https://proxy.example/?url=";
+
+const useLocalCheckbox = document.getElementById("use-local");
+
+useLocalCheckbox.checked = localStorage.getItem("use-local") !== "false";
+useLocalCheckbox.addEventListener("change", () => {
+  localStorage.setItem("use-local", useLocalCheckbox.checked);
+  loadAll();
+});
+
+function buildUrl(source) {
+  if (useLocalCheckbox.checked) {
+    return source.localUrl;
+  }
+  return PROXY_URL + source.website;
+}
+
 const SOURCES = [
   {
     id: "hviezda",
@@ -38,7 +55,7 @@ function wait(ms) {
 
 async function loadSource(source) {
   await wait(DELAYS[source.id] ?? 0);
-  const response = await fetch(source.localUrl);
+  const response = await fetch(buildUrl(source));
   if (!response.ok) {
     throw new Error(`HTTP ${response.status}`);
   }
@@ -50,6 +67,7 @@ const refreshButton = document.getElementById("refresh");
 const cards = document.getElementById("cards");
 
 const results = {};
+const hiddenSources = new Set();
 
 function createTodayList(days) {
   const today = DAY_NAMES[(new Date().getDay() + 6) % 7];
@@ -107,17 +125,30 @@ function createCard(source) {
   } else if (result.state === "error") {
     body.classList.add("text-danger");
     body.textContent = `Program sa nepodarilo načítať (${result.error.message}). `;
+    const retry = document.createElement("button");
+    retry.type = "button";
+    retry.className = "btn btn-sm btn-outline-danger";
+    retry.textContent = "Skúsiť znova";
+    retry.addEventListener("click", () => loadOne(source).catch(() => {}));
+    body.append(retry);
   } else {
     body.append(createTodayList(result.days));
   }
 
-  card.append(header, body);
+  const footer = document.createElement("div");
+  footer.className = "card-footer small text-body-secondary";
+  footer.textContent = result.updatedAt
+    ? `Aktualizované ${result.updatedAt.toLocaleString("sk-SK")}`
+    : "Zatiaľ nenačítané";
+
+  card.append(header, body, footer);
   column.append(card);
   return column;
 }
 
 function renderCards() {
-  cards.replaceChildren(...SOURCES.map(createCard));
+  const visible = SOURCES.filter((source) => !hiddenSources.has(source.id));
+  cards.replaceChildren(...visible.map(createCard));
 }
 
 async function loadOne(source) {
@@ -145,5 +176,26 @@ async function loadAll() {
 }
 
 refreshButton.addEventListener("click", loadAll);
+
+const filters = document.getElementById("filters");
+
+for (const source of SOURCES) {
+  const label = document.createElement("label");
+  label.className = "form-check form-check-inline";
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.className = "form-check-input";
+  checkbox.checked = true;
+  checkbox.addEventListener("change", () => {
+  if (checkbox.checked) {
+    hiddenSources.delete(source.id);
+  } else {
+    hiddenSources.add(source.id);
+  }
+  renderCards();
+});
+  label.append(checkbox, ` ${source.name}`);
+  filters.append(label);
+}
 
 loadAll();
