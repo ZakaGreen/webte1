@@ -1,0 +1,308 @@
+@font-face {
+  font-family: "Noto Serif";
+  src: url("../fonts/noto-serif-regular.woff2") format("woff2");
+}
+
+body {
+  background: #283323;
+  color: #F1E7CF;
+  font-family: "Noto Serif", serif;
+  line-height: 1.6;
+}
+
+a {
+  color: #D3BB7B;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: #F1E7CF;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
+h2 {
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #5B6249;
+}
+
+.brand {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: #F1E7CF;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.intro {
+  padding: 64px 0 48px;
+}
+
+.dish-type {
+  color: #C9C5AE;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-bottom: 22px;
+  color: #D3BB7B;
+  font-size: 60px;
+  line-height: 1.12;
+}
+
+.controls {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #5B6249;
+}
+
+.day-control {
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.day-control label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.form-select {
+  background-color: #F1E7CF;
+  color: #283323;
+  border: 1px solid #D3BB7B;
+  border-radius: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.btn {
+  background: #D3BB7B;
+  color: #283323;
+  border: 1px solid #D3BB7B;
+  border-radius: 0;
+  padding: 8px 16px;
+}
+
+.btn:hover, .btn:focus-visible {
+  background: #F1E7CF;
+  color: #283323;
+  border-color: #F1E7CF;
+}
+
+.secondary-button {
+  background: transparent;
+  color: #F1E7CF;
+}
+
+.btn:disabled {
+  background: #C9C5AE;
+  color: #283323;
+}
+
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #5B6249;
+}
+
+#filters label {
+  position: relative;
+  cursor: pointer;
+}
+
+#filters input {
+  position: absolute;
+  opacity: 0;
+}
+
+#filters span {
+  display: block;
+  padding: 12px 20px;
+  border-bottom: 2px solid transparent;
+}
+
+#filters input:checked + span {
+  background: #34412D;
+  color: #D3BB7B;
+  border-bottom-color: #D3BB7B;
+}
+
+#filters input:focus-visible + span {
+  outline: 2px solid #D3BB7B;
+  outline-offset: 2px;
+}
+
+#status, .updated, .allergens, .price-note {
+  color: #C9C5AE;
+  font-size: 13px;
+}
+
+#status {
+  min-height: 21px;
+  margin: 12px 0 6px;
+}
+
+.updated {
+  margin-bottom: 6px;
+}
+
+.restaurant {
+  margin-bottom: 32px;
+  padding: 32px;
+  background: #34412D;
+  border-top: 2px solid #D3BB7B;
+}
+
+.restaurant h3 {
+  margin-bottom: 12px;
+  font-size: 30px;
+}
+
+.restaurant h3 a {
+  color: #F1E7CF;
+  text-decoration: none;
+}
+
+.restaurant h3 a:hover {
+  text-decoration: underline;
+}
+
+.menu-day {
+  margin-top: 28px;
+}
+
+.menu-day h4 {
+  margin-bottom: 18px;
+  color: #D3BB7B;
+  font-size: 22px;
+}
+
+.dishes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dish {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid #5B6249;
+}
+
+.soup {
+  border-left: 2px solid #D3BB7B;
+  padding-left: 16px;
+}
+
+.dish-type {
+  margin-bottom: 5px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.allergens {
+  margin-top: 5px;
+}
+
+.prices {
+  color: #D3BB7B;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.prices span {
+  color: #C9C5AE;
+  font-size: 11px;
+}
+
+.price-note {
+  margin: 24px 0 0;
+}
+
+.error {
+  color: #F1E7CF;
+  border-left: 2px solid #D3BB7B;
+  padding-left: 16px;
+}
+
+#about {
+  max-width: 780px;
+  padding: 48px 0;
+}
+
+#about p {
+  color: #C9C5AE;
+}
+
+#about h1 {
+  font-size: 40px;
+}
+
+@media (max-width: 575px) {
+  .site-header {
+    gap: 12px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  .intro {
+    padding: 40px 0 32px;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  .restaurant {
+    padding: 22px 16px;
+  }
+
+  .dish {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    text-align: left;
+  }
+}

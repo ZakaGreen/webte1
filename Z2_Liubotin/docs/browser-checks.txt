@@ -1,0 +1,23 @@
+Prehliadačové kontroly — 28. 10. 2026
+
+Chrome 155.0.8059.39
+PASS: Local-only loading; one restaurant; update status and timestamps above restaurant/day controls
+PASS: Day/week selection is independent of updates; same-day cache and forced refresh work
+PASS: Expired cache reloads; clear removes menus/timestamps and preserves unrelated storage
+PASS: Loading and parsing errors are reported in the update block; retry recovers
+PASS: Responsive layout at 320/375/768/1440; separate minimal About page and return link
+PASS: Three simulated tabs: only one menu, mouse/arrow navigation, no extra fetch, independent source failure
+
+Firefox 157.0.1
+PASS: Local-only menu and one selected restaurant tab
+PASS: Update information above menu/day controls
+PASS: Day and whole-week display
+PASS: Same-day cache and manual refresh
+PASS: Clear removes menu and timestamps, preserves unrelated storage
+PASS: Menu and About page responsive at 320 px; menu also checked at 768/1440 px
+PASS: About page contains only source, processing and library information
+
+Tri reštaurácie boli simulované iba v testovacom prehliadači. Projekt obsahuje len Eat & Meet.
+Prepínanie záložiek nezobrazí viac ako jednu reštauráciu a nespúšťa nové načítanie.
+Počas načítania stránky a menu neboli v Chrome zaznamenané požiadavky na externé servery ani nezachytené JS chyby.
+Desktopové a mobilné snímky boli vizuálne skontrolované.

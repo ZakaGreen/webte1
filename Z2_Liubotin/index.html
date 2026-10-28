@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Na obed | Obedové menu v okolí fakulty</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="vendor/jquery.min.js" defer></script>
+  <script src="js/parsers.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="container site-header">
+    <a class="brand" href="index.html">Na obed</a>
+    <nav>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="about.html">O projekte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="intro">
+      <h1>Dobrý obed<br>Na dosah</h1>
+    </div>
+
+    <div class="controls">
+      <div class="actions">
+        <button id="refresh" class="btn">Aktualizovať menu</button>
+        <button id="clear" class="btn secondary-button">Vymazať údaje</button>
+      </div>
+      <p id="status">Načítavam menu…</p>
+      <div id="updates"></div>
+    </div>
+
+    <section id="menu">
+      <h2>Obedové menu</h2>
+      <fieldset id="filters">
+        <legend class="visually-hidden">Reštaurácia</legend>
+      </fieldset>
+      <div class="day-control">
+        <label for="day">Deň</label>
+        <select id="day" class="form-select">
+          <option value="0">Pondelok</option>
+          <option value="1">Utorok</option>
+          <option value="2">Streda</option>
+          <option value="3">Štvrtok</option>
+          <option value="4">Piatok</option>
+          <option value="all">Celý týždeň</option>
+        </select>
+      </div>
+      <div id="cards"></div>
+    </section>
+  </main>
+</body>
+</html>

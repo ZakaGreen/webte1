@@ -1,0 +1,25 @@
+W3C Nu HTML Checker
+https://validator.w3.org/nu/
+Dátum kontroly: 28. 10. 2026
+
+Súbor: index.html
+SHA-256: ffa264ecd335f5c01547ee74dca1b9e05c6ed20524da88308fe9bb803a5b7546
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+Súbor: about.html
+SHA-256: 19cbafb9014ba738b4e0962e69b2d059cde459fe8bfe8cf3137fd896b4fd2f16
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+HTML po vykreslení menu (Eat & Meet, streda, lokálna kópia):
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+Výsledok všetkých troch kontrol: 0 chýb, 0 upozornení.
