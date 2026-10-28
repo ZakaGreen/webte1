@@ -8,6 +8,10 @@ PASS: Loading and parsing errors are reported in the update block; retry recover
 PASS: Responsive layout at 320/375/768/1440; separate minimal About page and return link
 PASS: Three simulated tabs: only one menu, mouse/arrow navigation, no extra fetch, independent source failure
 
+PASS: Discounted price label is s ISIC; explanatory note removed
+PASS: All 50 parsed meals match the previous version after removing unused empty fields
+PASS: Old and simplified CSS produce identical screenshots at 320/375/768/1440 px and in the error state
+
 Firefox 157.0.1
 PASS: Local-only menu and one selected restaurant tab
 PASS: Update information above menu/day controls

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Noto Serif";
-  src: url("../fonts/noto-serif-regular.woff2") format("woff2");
+  src: url("../fonts/noto-serif-regular.woff2");
 }
 
 body {
@@ -63,8 +63,9 @@ nav a {
 
 .dish-type {
   color: #C9C5AE;
-  font-size: 12px;
-  letter-spacing: 2px;
+  margin-bottom: 5px;
+  font-size: 10px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
@@ -95,21 +96,20 @@ h1 {
 .form-select {
   background-color: #F1E7CF;
   color: #283323;
-  border: 1px solid #D3BB7B;
+  border-color: #D3BB7B;
   border-radius: 0;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
-  align-items: end;
   gap: 12px;
 }
 
 .btn {
   background: #D3BB7B;
   color: #283323;
-  border: 1px solid #D3BB7B;
+  border-color: #D3BB7B;
   border-radius: 0;
   padding: 8px 16px;
 }
@@ -165,7 +165,7 @@ h1 {
   outline-offset: 2px;
 }
 
-#status, .updated, .allergens, .price-note {
+#status, .updated, .allergens {
   color: #C9C5AE;
   font-size: 13px;
 }
@@ -229,12 +229,6 @@ h1 {
   padding-left: 16px;
 }
 
-.dish-type {
-  margin-bottom: 5px;
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
 .allergens {
   margin-top: 5px;
 }
@@ -250,12 +244,7 @@ h1 {
   font-size: 11px;
 }
 
-.price-note {
-  margin: 24px 0 0;
-}
-
 .error {
-  color: #F1E7CF;
   border-left: 2px solid #D3BB7B;
   padding-left: 16px;
 }

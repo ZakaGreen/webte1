@@ -6,7 +6,7 @@ function cleanText(text) {
 }
 
 // Extract weekdays and meals from Eat & Meet into the shared menu structure.
-// Return [{ day, date, meals: [{ type, name, price, discountPrice, allergens, weight }] }].
+// Return [{ day, meals: [{ type, name, price, discountPrice, allergens }] }].
 function parseEatAndMeet(doc) {
   const menu = doc.querySelector(".weak-menu");
   if (!menu || !menu.querySelector(".tab-pane")) {
@@ -36,11 +36,10 @@ function parseEatAndMeet(doc) {
         if (!name) {
           continue;
         }
-        const category = cleanText(heading.textContent);
-        let type = category;
-        if (category.startsWith("Polievka")) {
+        let type = cleanText(heading.textContent);
+        if (type.startsWith("Polievka")) {
           type = "Polievka";
-        } else if (category.startsWith("MENU")) {
+        } else if (type.startsWith("MENU")) {
           type = "Hlavné jedlo";
         }
         const prices = cleanText(price.textContent).split("/");
@@ -50,12 +49,11 @@ function parseEatAndMeet(doc) {
           price: prices[0].trim(),
           discountPrice: prices[1] ? prices[1].trim() : "",
           allergens,
-          weight: "",
         });
       }
     }
     // The source lists weekdays, but no dates or weights for these meals.
-    days.push({ day: DAY_NAMES[index], date: "", meals });
+    days.push({ day: DAY_NAMES[index], meals });
   }
   return days;
 }

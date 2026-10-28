@@ -28,7 +28,8 @@ Zdroj: https://eatandmeet.sk/tyzdenne-menu
 `source/eat-and-meet.html` je úplná HTML kópia stiahnutá 27. 10. 2026.
 Na stránku sa vkladá iba spracovaný text, nie cudzí HTML kód, obrázky či skripty.
 Zdroj uvádza dni, dve ceny a pri niektorých jedlách alergény. V týždennom menu neuvádza dátumy ani gramáže;
-polia `date` a `weight` sú preto prázdne. Ceny preberáme v poradí bežná cena / cena s dotáciou.
+parser preto nepridáva prázdne polia `date` a `weight`. Zobrazenie ich podporuje, ak ich iný zdroj poskytne.
+Ceny preberáme v poradí bežná cena / cena s dotáciou; znížená cena má na stránke označenie „s ISIC“.
 
 Podľa dodatočného upresnenia vyučujúcich stačí načítanie lokálnych kópií.
 Živé načítanie ani proxy sa nepoužívajú. Odkaz na pôvodnú stránku zostáva pri názve reštaurácie.

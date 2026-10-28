@@ -36,7 +36,7 @@ function createMeal(meal) {
   prices.append(regular);
   if (meal.discountPrice) {
     const discount = $("<div>").text(meal.discountPrice);
-    discount.append($("<span>").text(" · S dotáciou"));
+    discount.append($("<span>").text(" · s ISIC"));
     prices.append(discount);
   }
   return item.append(description, prices);
@@ -102,12 +102,10 @@ function renderCards() {
     } else {
       const selectedDay = $("#day").val();
       for (const day of result.days) {
-        if (selectedDay === "all" || day.day === DAY_NAMES[Number(selectedDay)]) {
+        if (selectedDay === "all" || day.day === DAY_NAMES[selectedDay]) {
           card.append(createDay(day));
         }
       }
-      card.append($("<p>").addClass("price-note")
-        .text("Znížená cena je s dotáciou pri predložení platnej karty ISIC podľa podmienok reštaurácie."));
     }
     cards.append(card);
   }
