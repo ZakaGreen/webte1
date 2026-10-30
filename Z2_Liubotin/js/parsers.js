@@ -1,11 +1,11 @@
-const DAY_NAMES = ["Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok"];
+const DAY_NAMES = ["Pondelok", "Utorok", "Streda", "Štvrtok", "Piatok", "Sobota", "Nedeľa"];
 
 // Replace repeated whitespace and remove spaces at the beginning and end.
 function cleanText(text) {
   return text.replace(/\s+/g, " ").trim();
 }
 
-// Extract weekdays and meals from Eat & Meet into the shared menu structure.
+// Extract all seven days and meals from Eat & Meet into the shared menu structure.
 // Return [{ day, meals: [{ type, name, price, discountPrice, allergens }] }].
 function parseEatAndMeet(doc) {
   const menu = doc.querySelector(".weak-menu");
@@ -52,7 +52,7 @@ function parseEatAndMeet(doc) {
         });
       }
     }
-    // The source lists weekdays, but no dates or weights for these meals.
+    // The source lists days, but no dates or weights for these meals.
     days.push({ day: DAY_NAMES[index], meals });
   }
   return days;
@@ -66,7 +66,7 @@ function parseFaynFood(doc) {
   }
 
   const days = [];
-  for (const day of DAY_NAMES) {
+  for (const day of DAY_NAMES.slice(0, 5)) {
     days.push({ day, meals: [] });
   }
   for (const section of menu.children) {

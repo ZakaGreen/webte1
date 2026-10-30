@@ -2,6 +2,8 @@ const SOURCES = [
   {
     id: "eat-and-meet",
     name: "Eat & Meet",
+    openingHours: "Po–Pi 7:00–20:30 · So–Ne 9:00–19:00",
+    dayCount: 7,
     website: "https://eatandmeet.sk/tyzdenne-menu",
     localUrl: "source/eat-and-meet.html",
     parse: parseEatAndMeet,
@@ -9,6 +11,8 @@ const SOURCES = [
   {
     id: "fayn-food",
     name: "Fayn Food",
+    openingHours: "Po–Pi 8:00–15:00 (cez prázdniny do 14:00)",
+    dayCount: 5,
     website: "http://www.freefood.sk/menu/#fayn-food",
     localUrl: "source/fayn-food.html",
     parse: parseFaynFood,
@@ -49,7 +53,7 @@ function createMeal(meal) {
   return item.append(description, prices);
 }
 
-// Create the menu section for one weekday or show that its menu is missing.
+// Create the menu section for one day or show that its menu is missing.
 function createDay(day) {
   const section = $("<section>").addClass("menu-day");
   section.append($("<h4>").text(day.day + (day.date ? " · " + day.date : "")));
@@ -96,9 +100,16 @@ function renderCards() {
     if (!$("#show-" + source.id).prop("checked")) {
       continue;
     }
+    // Switch to Monday if this restaurant does not offer the selected day.
+    if (Number($("#day").val()) >= source.dayCount) {
+      $("#day").val("0");
+    }
+    $("#day option[value='5'], #day option[value='6']")
+      .prop("hidden", source.dayCount === 5).prop("disabled", source.dayCount === 5);
     const card = $("<article>").addClass("restaurant");
     const link = $("<a>").attr("href", source.website).text(source.name);
     card.append($("<h3>").append(link));
+    card.append($("<p>").text("Bežné otváracie hodiny: " + source.openingHours));
     const result = results[source.id];
     if (!result || result.state === "loading") {
       card.append($("<p>").text("Načítavam menu…"));
@@ -132,6 +143,7 @@ async function loadOne(source, refresh) {
       // A damaged or unavailable cache must not prevent loading the menu.
     }
     if (!refresh && saved && Array.isArray(saved.days)
+        && saved.days.length === source.dayCount
         && new Date(saved.updatedAt).toDateString() === new Date().toDateString()) {
       results[source.id] = { state: "ok", days: saved.days, updatedAt: saved.updatedAt };
     } else {

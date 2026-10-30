@@ -12,7 +12,7 @@ HTML zdroje, knižnice aj písmo sú priložené lokálne, takže stránka nepot
 
 ## Funkcie
 
-- Výber pondelka až piatka alebo celého týždňa bez obnovenia stránky.
+- Výber dňa alebo celého týždňa bez obnovenia stránky: Eat & Meet pondelok až nedeľa, Fayn Food pondelok až piatok.
 - Predvolený aktuálny pracovný deň; cez víkend pondelok.
 - Výber jednej reštaurácie pomocou záložiek; ostatné menu sa nezobrazujú.
 - Načítanie iba z lokálnych HTML kópií.
@@ -20,6 +20,7 @@ HTML zdroje, knižnice aj písmo sú priložené lokálne, takže stránka nepot
 - Aktualizačné tlačidlá, výsledky načítania a časy aktualizácií sú nad samostatným blokom menu.
 - Správy pri načítavaní, chýbajúcom menu, chybe siete alebo zmene HTML štruktúry.
 - Ceny s označením, dátumy, alergény a gramáže podľa zdroja.
+- Bežné otváracie hodiny pod názvom reštaurácie, nad jej menu.
 
 ## Zdroj údajov a obmedzenia
 
@@ -30,6 +31,7 @@ Na stránku sa vkladá iba spracovaný text, nie cudzí HTML kód, obrázky či 
 Zdroj uvádza dni, dve ceny a pri niektorých jedlách alergény. V týždennom menu neuvádza dátumy ani gramáže;
 parser preto nepridáva prázdne polia `date` a `weight`. Zobrazenie ich podporuje, ak ich iný zdroj poskytne.
 Ceny preberáme v poradí bežná cena / cena s dotáciou; znížená cena má na stránke označenie „s ISIC“.
+Parser spracúva aj sobotné a nedeľné menu, ktoré je už súčasťou uloženej HTML kópie.
 
 Fayn Food: http://www.freefood.sk/menu/#fayn-food
 
@@ -38,6 +40,10 @@ Parser číta iba denné menu v časti `#fayn-food`, nie ponuky ostatných jedá
 Z vnorených zoznamov vyberá dni, dátumy, jedlá a ceny. Z textu jednotlivých jedál oddelí alergény a gramáže.
 Zdroj uvádza jednu cenu; cenu s ISIC preto nepridávame. Označenie „(V)“ zostáva pri názve jedla.
 V piatok zdroj uvádza „Zatvorené“ a prázdne riadky s cenami. Parser ich vynechá a stránka zobrazí chýbajúce menu.
+
+Otváracie hodiny sú uložené ako text pri každej reštaurácii v `SOURCES`. Neurčujú dostupnosť menu na konkrétny deň.
+Overené 30. 10. 2026: Eat & Meet podľa https://eatandmeet.sk/kontakt;
+Fayn Food podľa https://zona.fmph.uniba.sk/sluzby-a-administrativa/jedalne-listky/jedalen-faynfood/.
 
 Podľa dodatočného upresnenia vyučujúcich stačí načítanie lokálnych kópií.
 Živé načítanie ani proxy sa nepoužívajú. Odkaz na pôvodnú stránku zostáva pri názve reštaurácie.
@@ -60,6 +66,8 @@ Vymazanie odstráni len kľúče tohto zadania a nespustí automatické nové na
 
 Postup: Fetch API → DOMParser → parser reštaurácie → pole dní a jedál → localStorage → zobrazenie.
 Pri zmene dňa alebo reštaurácie sa iba znovu vykreslia už načítané údaje.
+Fayn Food nemá v ponuke výberu sobotu a nedeľu; pri prepnutí z víkendového menu sa zvolí pondelok.
+`dayCount` určuje počet dní reštaurácie a overuje počet dní v cache. Staršia päťdňová cache Eat & Meet sa preto znova načíta.
 Záložky používajú HTML radio vstupy s rovnakým názvom, preto môže byť vybraný iba jeden podnik.
 Funkcia `renderUpdates` zobrazuje výsledky načítania a `renderCards` zobrazuje vybrané menu.
 Ďalšia reštaurácia potrebuje vlastnú funkciu parsera a položku v poli `SOURCES`.

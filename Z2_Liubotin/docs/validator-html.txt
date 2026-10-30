@@ -41,3 +41,21 @@ HTML po vykreslení menu (Fayn Food, celý týždeň, lokálna kópia):
 
 Výsledok oboch nových kontrol: 0 chýb, 0 upozornení.
 index.html a css/styles.css sa pri pridaní Fayn Food nemenili.
+
+Víkend Eat & Meet a otváracie hodiny — 30. 10. 2026
+
+Aktualizovaný súbor: index.html
+SHA-256: 8bc4a2d65d87d8ee0d019e796512c22c50f8647742b41cbf1ef7326dd8cc329b
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+HTML po vykreslení menu (Eat & Meet, všetkých sedem dní a otváracie hodiny):
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+Výsledok oboch nových kontrol: 0 chýb, 0 upozornení.
+Vlastné CSS sa nemenilo.

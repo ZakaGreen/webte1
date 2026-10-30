@@ -51,3 +51,23 @@ PASS: Clearing removes timestamps and preserves unrelated storage
 
 Desktopové a mobilné snímky Fayn Food boli vizuálne skontrolované.
 V prehliadači aplikácie bolo otvorené a skontrolované menu Fayn Food na pondelok.
+
+Víkend Eat & Meet a otváracie hodiny — 30. 10. 2026
+
+Chrome 155.0.8059.39 a Firefox 157.0.1
+PASS: Eat & Meet has seven days and 70 meals; Saturday and Sunday each display ten meals with both prices
+PASS: Fayn Food keeps five days and 20 meals; weekend options are hidden and disabled for this restaurant
+PASS: Switching from a weekend to Fayn Food selects Monday; returning to Eat & Meet enables weekends again
+PASS: Both restaurants display their usual opening hours above the dishes
+PASS: Same-day cache, forced refresh and clearing both menus work
+PASS: Fayn Food layout fits 320/768/1440 px in Firefox
+
+Dodatočne overené v Chrome
+PASS: An older five-day Eat & Meet cache is replaced automatically; Fayn Food cache is reused
+PASS: Switching days/restaurants does not fetch sources; refresh preserves the selected weekend day
+PASS: Both restaurants fit 320/375/768/1440 px; hours remain above their menus
+PASS: Saturday/Sunday initial selection stays Monday according to the assignment
+PASS: No uncaught JavaScript errors or external requests
+
+Snímky otváracích hodín a víkendového menu boli vizuálne skontrolované.
+V prehliadači aplikácie bolo otvorené a skontrolované sobotné menu Eat & Meet.
