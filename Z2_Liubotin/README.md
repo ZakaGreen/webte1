@@ -2,13 +2,13 @@
 
 Autor: Ilia Liubotin, FEI STU, Aplikovaná informatika, 2026/2027.
 
-Pracovná verzia obsahuje Eat & Meet. Ďalšie dve reštaurácie a odovzdanie celého zadania ešte nie sú dokončené.
+Pracovná verzia obsahuje Eat & Meet a Fayn Food. Tretia reštaurácia a odovzdanie celého zadania ešte nie sú dokončené.
 
 ## Spustenie
 
 V priečinku `Z2_Liubotin` spustite `python3 -m http.server 8000` a otvorte `http://localhost:8000/`.
 Súbor neotvárajte cez `file://`, pretože načítanie HTML pomocou Fetch API potrebuje webový server.
-HTML zdroj, knižnice aj písmo sú priložené lokálne, takže stránka nepotrebuje internet.
+HTML zdroje, knižnice aj písmo sú priložené lokálne, takže stránka nepotrebuje internet.
 
 ## Funkcie
 
@@ -19,17 +19,25 @@ HTML zdroj, knižnice aj písmo sú priložené lokálne, takže stránka nepotr
 - Denná cache v localStorage, čas aktualizácie, ručné obnovenie a vymazanie údajov.
 - Aktualizačné tlačidlá, výsledky načítania a časy aktualizácií sú nad samostatným blokom menu.
 - Správy pri načítavaní, chýbajúcom menu, chybe siete alebo zmene HTML štruktúry.
-- Obe ceny s označením a alergény podľa zdroja.
+- Ceny s označením, dátumy, alergény a gramáže podľa zdroja.
 
 ## Zdroj údajov a obmedzenia
 
-Zdroj: https://eatandmeet.sk/tyzdenne-menu
+Eat & Meet: https://eatandmeet.sk/tyzdenne-menu
 
 `source/eat-and-meet.html` je úplná HTML kópia stiahnutá 27. 10. 2026.
 Na stránku sa vkladá iba spracovaný text, nie cudzí HTML kód, obrázky či skripty.
 Zdroj uvádza dni, dve ceny a pri niektorých jedlách alergény. V týždennom menu neuvádza dátumy ani gramáže;
 parser preto nepridáva prázdne polia `date` a `weight`. Zobrazenie ich podporuje, ak ich iný zdroj poskytne.
 Ceny preberáme v poradí bežná cena / cena s dotáciou; znížená cena má na stránke označenie „s ISIC“.
+
+Fayn Food: http://www.freefood.sk/menu/#fayn-food
+
+`source/fayn-food.html` je úplná HTML kópia stiahnutá 30. 10. 2026 s menu na 26.–30. 10. 2026.
+Parser číta iba denné menu v časti `#fayn-food`, nie ponuky ostatných jedální, raňajky ani nápoje.
+Z vnorených zoznamov vyberá dni, dátumy, jedlá a ceny. Z textu jednotlivých jedál oddelí alergény a gramáže.
+Zdroj uvádza jednu cenu; cenu s ISIC preto nepridávame. Označenie „(V)“ zostáva pri názve jedla.
+V piatok zdroj uvádza „Zatvorené“ a prázdne riadky s cenami. Parser ich vynechá a stránka zobrazí chýbajúce menu.
 
 Podľa dodatočného upresnenia vyučujúcich stačí načítanie lokálnych kópií.
 Živé načítanie ani proxy sa nepoužívajú. Odkaz na pôvodnú stránku zostáva pri názve reštaurácie.
@@ -43,9 +51,9 @@ Vymazanie odstráni len kľúče tohto zadania a nespustí automatické nové na
 - `index.html`: obsah stránky, navigácia a ovládacie prvky.
 - `about.html`: iba zdroj, spracovanie údajov a knižnice požadované bodom 7 zadania.
 - `css/styles.css`: olivová paleta, miestne písmo a úpravy pre mobil.
-- `js/parsers.js`: `parseEatAndMeet` vyhľadá dni a jedlá v DOM a vráti pole objektov.
+- `js/parsers.js`: `parseEatAndMeet` a `parseFaynFood` vyhľadajú dni a jedlá v DOM a vrátia rovnakú štruktúru objektov.
 - `js/script.js`: Fetch API, cache, udalosti a vykreslenie pomocou jQuery.
-- `source/`: uložený HTML zdroj, ktorý sa len číta a parsuje.
+- `source/`: uložené HTML zdroje, ktoré sa len čítajú a parsujú.
 - `vendor/`: nezmenené externé knižnice; nejde o vlastný kód projektu.
 - `fonts/`: miestny font a jeho licencia.
 - `docs/`: výsledky overenia.

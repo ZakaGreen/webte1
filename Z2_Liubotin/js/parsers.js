@@ -57,3 +57,65 @@ function parseEatAndMeet(doc) {
   }
   return days;
 }
+
+// Extract dated daily offers from Fayn Food into the shared menu structure.
+function parseFaynFood(doc) {
+  const menu = doc.querySelector("#fayn-food .daily-offer");
+  if (!menu || !menu.querySelector(".day-title")) {
+    throw new Error("Štruktúra stránky Fayn Food sa zmenila. Menu sa nedá spracovať.");
+  }
+
+  const days = [];
+  for (const day of DAY_NAMES) {
+    days.push({ day, meals: [] });
+  }
+  for (const section of menu.children) {
+    const heading = section.querySelector(".day-title");
+    const list = section.querySelector(".day-offer");
+    if (!heading || !list) {
+      throw new Error("Štruktúra dňa vo Fayn Food sa zmenila. Menu sa nedá spracovať.");
+    }
+    const title = cleanText(heading.textContent).split(",");
+    // Match by weekday name so a missing day does not shift the other menus.
+    const day = days.find((item) => item.day.toLowerCase() === title[0].toLowerCase());
+    if (!day) {
+      continue;
+    }
+    day.date = title[1] ? title[1].trim() : "";
+
+    for (const item of list.children) {
+      const nameElement = item.cloneNode(true);
+      const label = nameElement.querySelector(".brand:not(.price)");
+      const price = nameElement.querySelector(".price");
+      if (!label || !price) {
+        throw new Error("Štruktúra jedla vo Fayn Food sa zmenila. Menu sa nedá spracovať.");
+      }
+      const type = cleanText(label.textContent) === "P." ? "Polievka" : "Hlavné jedlo";
+      label.remove();
+      price.remove();
+      let name = cleanText(nameElement.textContent);
+      // Closed days still contain prices and empty dish rows in the source.
+      if (!name || name.toLowerCase() === "zatvorené") {
+        continue;
+      }
+
+      // Read allergens and portions from the selected dish text, not from HTML.
+      const allergens = name.match(/A:\s*([\d,]+)/);
+      const weight = name.match(/\d+(?:,\d+)?[gl](?:,\d+[gl])*/);
+      if (allergens) {
+        name = name.replace(allergens[0], "");
+      }
+      if (weight) {
+        name = name.replace(weight[0], "");
+      }
+      day.meals.push({
+        type,
+        name: cleanText(name),
+        price: cleanText(price.textContent),
+        allergens: allergens ? allergens[1] : "",
+        weight: weight ? weight[0] : "",
+      });
+    }
+  }
+  return days;
+}

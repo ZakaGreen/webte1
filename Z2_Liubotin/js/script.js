@@ -6,6 +6,13 @@ const SOURCES = [
     localUrl: "source/eat-and-meet.html",
     parse: parseEatAndMeet,
   },
+  {
+    id: "fayn-food",
+    name: "Fayn Food",
+    website: "http://www.freefood.sk/menu/#fayn-food",
+    localUrl: "source/fayn-food.html",
+    parse: parseFaynFood,
+  },
 ];
 
 const results = {};

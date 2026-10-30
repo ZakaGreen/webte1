@@ -23,3 +23,21 @@ HTML po vykreslení menu (Eat & Meet, streda, lokálna kópia):
 }
 
 Výsledok všetkých troch kontrol: 0 chýb, 0 upozornení.
+
+Pridanie Fayn Food — 30. 10. 2026
+
+Aktualizovaný súbor: about.html
+SHA-256: 4e2619b4098e5688caf1f394d95f29a39dcd3de817a0478c2de7806eb6d127a7
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+HTML po vykreslení menu (Fayn Food, celý týždeň, lokálna kópia):
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+Výsledok oboch nových kontrol: 0 chýb, 0 upozornení.
+index.html a css/styles.css sa pri pridaní Fayn Food nemenili.

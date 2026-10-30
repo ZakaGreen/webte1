@@ -21,7 +21,33 @@ PASS: Clear removes menu and timestamps, preserves unrelated storage
 PASS: Menu and About page responsive at 320 px; menu also checked at 768/1440 px
 PASS: About page contains only source, processing and library information
 
-Tri reštaurácie boli simulované iba v testovacom prehliadači. Projekt obsahuje len Eat & Meet.
+Pri kontrole 28. 10. boli tri reštaurácie simulované iba v testovacom prehliadači. Projekt vtedy obsahoval len Eat & Meet.
 Prepínanie záložiek nezobrazí viac ako jednu reštauráciu a nespúšťa nové načítanie.
 Počas načítania stránky a menu neboli v Chrome zaznamenané požiadavky na externé servery ani nezachytené JS chyby.
 Desktopové a mobilné snímky boli vizuálne skontrolované.
+
+Pridanie Fayn Food — 30. 10. 2026
+
+Chrome 155.0.8059.39
+PASS: Two real local sources; Eat & Meet keeps 50 meals; Fayn Food contains 20 meals across Monday–Thursday
+PASS: Fayn Food dates, names, prices, portions and allergens match its source; vegetarian markers remain
+PASS: Other canteens, breakfast and drinks from the shared source page are excluded
+PASS: Closed Friday and empty rows with prices do not become dishes; a missing day does not shift other days
+PASS: Changed page or dish structure produces a readable error
+PASS: One visible restaurant; mouse/arrow navigation and day/week selection do not trigger another fetch
+PASS: Fayn Food shows one price; Eat & Meet keeps both prices including s ISIC
+PASS: Same-day cache, forced refresh, independent expired cache and clearing both restaurant keys
+PASS: Clearing preserves unrelated storage; refresh preserves selected restaurant and weekday
+PASS: Broken Fayn Food source leaves Eat & Meet usable; refreshing after repair recovers
+PASS: Both menus fit 320/375/768/1440 px; update information remains above menu controls
+PASS: About page links both sources and fits 320 px
+PASS: No uncaught JavaScript errors or external requests during the Chrome checks
+
+Firefox 157.0.1
+PASS: Two restaurant tabs; Fayn Food dates, portions, one price and day/week selection
+PASS: One visible restaurant; layout fits 320/768/1440 px
+PASS: Same-day cache skips source requests; refresh reads both files; clearing removes both caches
+PASS: Clearing removes timestamps and preserves unrelated storage
+
+Desktopové a mobilné snímky Fayn Food boli vizuálne skontrolované.
+V prehliadači aplikácie bolo otvorené a skontrolované menu Fayn Food na pondelok.
