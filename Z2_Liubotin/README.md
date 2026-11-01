@@ -2,11 +2,13 @@
 
 Autor: Ilia Liubotin, FEI STU, Aplikovaná informatika, 2026/2027.
 
-Stránka obsahuje Eat & Meet, Fayn Food a DRAG. Záverečná príprava odovzdania ešte nie je dokončená.
+Stránka obsahuje Eat & Meet, Fayn Food a DRAG. Výber reštaurácií bol schválený vyučujúcim.
+
+Zverejnená stránka: https://webte1.fei.stuba.sk/~xliubotin/Z2_Liubotin/
 
 ## Spustenie
 
-V priečinku `Z2_Liubotin` spustite `python3 -m http.server 8000` a otvorte `http://localhost:8000/`.
+V priečinku s `index.html` spustite `python3 -m http.server 8000` a otvorte `http://localhost:8000/`.
 Súbor neotvárajte cez `file://`, pretože načítanie HTML pomocou Fetch API potrebuje webový server.
 HTML zdroje, knižnice aj písmo sú priložené lokálne, takže stránka nepotrebuje internet.
 
@@ -104,5 +106,6 @@ sú v `docs/browser-checks.txt`.
 
 ## Použitie AI
 
-OpenAI Codex som použil na vysvetlenie kódu, pomoc s implementáciou mojich nápadov
-a úpravy a opravy častí HTML, CSS a JavaScriptu.
+Pri práci som konzultoval postup a riešenie s OpenAI Codex. Použil som ho na vysvetlenie kódu,
+pomoc s realizáciou mojich nápadov a kontrolu a opravy jednotlivých častí HTML, CSS a JavaScriptu.
+Za odovzdané riešenie zodpovedám ako autor.
