@@ -2,7 +2,7 @@
 
 Autor: Ilia Liubotin, FEI STU, Aplikovaná informatika, 2026/2027.
 
-Pracovná verzia obsahuje Eat & Meet a Fayn Food. Tretia reštaurácia a odovzdanie celého zadania ešte nie sú dokončené.
+Stránka obsahuje Eat & Meet, Fayn Food a DRAG. Záverečná príprava odovzdania ešte nie je dokončená.
 
 ## Spustenie
 
@@ -12,7 +12,7 @@ HTML zdroje, knižnice aj písmo sú priložené lokálne, takže stránka nepot
 
 ## Funkcie
 
-- Výber dňa alebo celého týždňa bez obnovenia stránky: Eat & Meet pondelok až nedeľa, Fayn Food pondelok až piatok.
+- Výber dňa alebo celého týždňa bez obnovenia stránky: Eat & Meet pondelok až nedeľa, Fayn Food a DRAG pondelok až piatok.
 - Predvolený aktuálny pracovný deň; cez víkend pondelok.
 - Výber jednej reštaurácie pomocou záložiek; ostatné menu sa nezobrazujú.
 - Načítanie iba z lokálnych HTML kópií.
@@ -41,9 +41,18 @@ Z vnorených zoznamov vyberá dni, dátumy, jedlá a ceny. Z textu jednotlivých
 Zdroj uvádza jednu cenu; cenu s ISIC preto nepridávame. Označenie „(V)“ zostáva pri názve jedla.
 V piatok zdroj uvádza „Zatvorené“ a prázdne riadky s cenami. Parser ich vynechá a stránka zobrazí chýbajúce menu.
 
+DRAG: https://www.restauracia-drag.sk/denne-menu
+
+`source/drag.html` je úplná HTML kópia stiahnutá 1. 11. 2026. Zdroj uvádza pondelok až piatok bez dátumov.
+Každý deň má polievku ako text a hlavné jedlá v tabuľke s dvomi stĺpcami: jedlo a cena.
+Parser oddelí gramáže a číselné alergény od názvu; prázdne riadky tabuľky vynechá.
+Pri polievke nie je samostatná cena, preto sa zobrazí „Neuvedená“. Zdroj neuvádza cenu s ISIC.
+Reštaurácia je otvorená aj cez víkend, ale v tomto dennom menu víkendové jedlá nepublikuje.
+
 Otváracie hodiny sú uložené ako text pri každej reštaurácii v `SOURCES`. Neurčujú dostupnosť menu na konkrétny deň.
 Overené 30. 10. 2026: Eat & Meet podľa https://eatandmeet.sk/kontakt;
 Fayn Food podľa https://zona.fmph.uniba.sk/sluzby-a-administrativa/jedalne-listky/jedalen-faynfood/.
+DRAG overené 1. 11. 2026 podľa https://www.restauracia-drag.sk/o-nas.
 
 Podľa dodatočného upresnenia vyučujúcich stačí načítanie lokálnych kópií.
 Živé načítanie ani proxy sa nepoužívajú. Odkaz na pôvodnú stránku zostáva pri názve reštaurácie.
@@ -57,7 +66,7 @@ Vymazanie odstráni len kľúče tohto zadania a nespustí automatické nové na
 - `index.html`: obsah stránky, navigácia a ovládacie prvky.
 - `about.html`: iba zdroj, spracovanie údajov a knižnice požadované bodom 7 zadania.
 - `css/styles.css`: olivová paleta, miestne písmo a úpravy pre mobil.
-- `js/parsers.js`: `parseEatAndMeet` a `parseFaynFood` vyhľadajú dni a jedlá v DOM a vrátia rovnakú štruktúru objektov.
+- `js/parsers.js`: `parseEatAndMeet`, `parseFaynFood` a `parseDrag` vyhľadajú dni a jedlá v DOM a vrátia rovnakú štruktúru objektov.
 - `js/script.js`: Fetch API, cache, udalosti a vykreslenie pomocou jQuery.
 - `source/`: uložené HTML zdroje, ktoré sa len čítajú a parsujú.
 - `vendor/`: nezmenené externé knižnice; nejde o vlastný kód projektu.
@@ -66,11 +75,13 @@ Vymazanie odstráni len kľúče tohto zadania a nespustí automatické nové na
 
 Postup: Fetch API → DOMParser → parser reštaurácie → pole dní a jedál → localStorage → zobrazenie.
 Pri zmene dňa alebo reštaurácie sa iba znovu vykreslia už načítané údaje.
-Fayn Food nemá v ponuke výberu sobotu a nedeľu; pri prepnutí z víkendového menu sa zvolí pondelok.
+Fayn Food a DRAG nemajú v ponuke výberu sobotu a nedeľu; pri prepnutí z víkendového menu sa zvolí pondelok.
 `dayCount` určuje počet dní reštaurácie a overuje počet dní v cache. Staršia päťdňová cache Eat & Meet sa preto znova načíta.
 Záložky používajú HTML radio vstupy s rovnakým názvom, preto môže byť vybraný iba jeden podnik.
 Funkcia `renderUpdates` zobrazuje výsledky načítania a `renderCards` zobrazuje vybrané menu.
 Ďalšia reštaurácia potrebuje vlastnú funkciu parsera a položku v poli `SOURCES`.
+Komentáre nad blokmi vlastného HTML, CSS, JavaScriptu a SVG vysvetľujú ich účel.
+Uložené stránky reštaurácií a externé knižnice zostávajú v pôvodnej podobe.
 
 Nadväznosť na materiály: HTML/CSS a fonty (prednášky 1–3), objekty a polia (5), DOM a udalosti (6),
 asynchrónne funkcie a Promise (7), Fetch API a jQuery (8), localStorage (9), Bootstrap (11).

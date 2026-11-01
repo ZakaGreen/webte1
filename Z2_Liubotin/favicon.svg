@@ -1,5 +1,8 @@
+<!-- A simple plate icon using the site's olive and champagne colors. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Rounded olive background. -->
   <rect width="64" height="64" rx="12" fill="#283323"/>
+  <!-- Outer plate and inner circle create a champagne rim. -->
   <circle cx="32" cy="32" r="22" fill="#D3BB7B"/>
   <circle cx="32" cy="32" r="15" fill="#283323"/>
 </svg>

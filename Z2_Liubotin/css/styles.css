@@ -1,8 +1,10 @@
+/* Load the bundled font so the page works without external font requests. */
 @font-face {
   font-family: "Noto Serif";
   src: url("../fonts/noto-serif-regular.woff2");
 }
 
+/* Set the olive background, warm text color and base typography. */
 body {
   background: #283323;
   color: #F1E7CF;
@@ -10,24 +12,29 @@ body {
   line-height: 1.6;
 }
 
+/* Use champagne links with space between the text and underline. */
 a {
   color: #D3BB7B;
   text-underline-offset: 4px;
 }
 
+/* Lighten links when the pointer is over them. */
 a:hover {
   color: #F1E7CF;
 }
 
+/* Keep headings at the regular weight supplied by the local font. */
 h1, h2, h3, h4 {
   font-weight: 400;
 }
 
+/* Size and separate the main menu heading. */
 h2 {
   margin-bottom: 24px;
   font-size: 28px;
 }
 
+/* Arrange the brand and navigation on one flexible row. */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -38,11 +45,13 @@ h2 {
   border-bottom: 1px solid #5B6249;
 }
 
+/* Style the site name as a clean text logo. */
 .brand {
   font-size: 24px;
   text-decoration: none;
 }
 
+/* Display navigation links in a row without list bullets. */
 nav ul {
   display: flex;
   gap: 24px;
@@ -51,16 +60,19 @@ nav ul {
   list-style: none;
 }
 
+/* Keep navigation smaller than the site name. */
 nav a {
   color: #F1E7CF;
   font-size: 14px;
   text-decoration: none;
 }
 
+/* Separate the introductory heading from navigation and controls. */
 .intro {
   padding: 64px 0 48px;
 }
 
+/* Distinguish dish categories with small uppercase text. */
 .dish-type {
   color: #C9C5AE;
   margin-bottom: 5px;
@@ -69,6 +81,7 @@ nav a {
   text-transform: uppercase;
 }
 
+/* Style the main heading in champagne with a compact line height. */
 h1 {
   margin-bottom: 22px;
   color: #D3BB7B;
@@ -76,23 +89,27 @@ h1 {
   line-height: 1.12;
 }
 
+/* Separate data update controls from menu selection with a border. */
 .controls {
   margin-bottom: 40px;
   padding-bottom: 24px;
   border-bottom: 1px solid #5B6249;
 }
 
+/* Limit the day selector width and leave space before the menu. */
 .day-control {
   max-width: 280px;
   margin-bottom: 24px;
 }
 
+/* Place the day label on its own line above the selector. */
 .day-control label {
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
 }
 
+/* Apply the warm light background and olive text to the day selector. */
 .form-select {
   background-color: #F1E7CF;
   color: #283323;
@@ -100,12 +117,14 @@ h1 {
   border-radius: 0;
 }
 
+/* Allow the update buttons to wrap when space is limited. */
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
+/* Apply the site colors and rectangular shape to Bootstrap buttons. */
 .btn {
   background: #D3BB7B;
   color: #283323;
@@ -114,22 +133,26 @@ h1 {
   padding: 8px 16px;
 }
 
+/* Highlight buttons for both pointer and keyboard interaction. */
 .btn:hover, .btn:focus-visible {
   background: #F1E7CF;
   color: #283323;
   border-color: #F1E7CF;
 }
 
+/* Give the clear button a quieter outlined appearance. */
 .secondary-button {
   background: transparent;
   color: #F1E7CF;
 }
 
+/* Show that update buttons are temporarily unavailable during loading. */
 .btn:disabled {
   background: #C9C5AE;
   color: #283323;
 }
 
+/* Lay out restaurant tabs in a row that can wrap on small screens. */
 #filters {
   display: flex;
   flex-wrap: wrap;
@@ -138,47 +161,56 @@ h1 {
   border-bottom: 1px solid #5B6249;
 }
 
+/* Make each label the clickable area of its restaurant tab. */
 #filters label {
   position: relative;
   cursor: pointer;
 }
 
+/* Visually hide radio circles while preserving keyboard interaction. */
 #filters input {
   position: absolute;
   opacity: 0;
 }
 
+/* Give each tab a padded label and reserve room for its underline. */
 #filters span {
   display: block;
   padding: 12px 20px;
   border-bottom: 2px solid transparent;
 }
 
+/* Mark the selected restaurant with a lighter background and underline. */
 #filters input:checked + span {
   background: #34412D;
   color: #D3BB7B;
   border-bottom-color: #D3BB7B;
 }
 
+/* Show keyboard focus on the visible tab label. */
 #filters input:focus-visible + span {
   outline: 2px solid #D3BB7B;
   outline-offset: 2px;
 }
 
+/* Use smaller muted text for status messages and extra meal details. */
 #status, .updated, .allergens {
   color: #C9C5AE;
   font-size: 13px;
 }
 
+/* Reserve space for the overall loading result. */
 #status {
   min-height: 21px;
   margin: 12px 0 6px;
 }
 
+/* Keep separate restaurant update lines close together. */
 .updated {
   margin-bottom: 6px;
 }
 
+/* Place the selected menu on a lighter olive card with a champagne top edge. */
 .restaurant {
   margin-bottom: 32px;
   padding: 32px;
@@ -186,36 +218,43 @@ h1 {
   border-top: 2px solid #D3BB7B;
 }
 
+/* Size the restaurant name and leave room for its opening hours. */
 .restaurant h3 {
   margin-bottom: 12px;
   font-size: 30px;
 }
 
+/* Make the source link look like the restaurant heading. */
 .restaurant h3 a {
   color: #F1E7CF;
   text-decoration: none;
 }
 
+/* Underline the restaurant name to indicate its source link. */
 .restaurant h3 a:hover {
   text-decoration: underline;
 }
 
+/* Separate consecutive days in the full-week view. */
 .menu-day {
   margin-top: 28px;
 }
 
+/* Highlight weekday headings and optional dates. */
 .menu-day h4 {
   margin-bottom: 18px;
   color: #D3BB7B;
   font-size: 22px;
 }
 
+/* Remove default list spacing and bullets from the meal list. */
 .dishes {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Keep meal descriptions and prices in two columns separated by row borders. */
 .dish {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -224,70 +263,86 @@ h1 {
   border-top: 1px solid #5B6249;
 }
 
+/* Give soups a distinct left border and inner spacing. */
 .soup {
   border-left: 2px solid #D3BB7B;
   padding-left: 16px;
 }
 
+/* Separate allergens and portions from the meal name. */
 .allergens {
   margin-top: 5px;
 }
 
+/* Align prices to the right and keep each price on one line. */
 .prices {
   color: #D3BB7B;
   text-align: right;
   white-space: nowrap;
 }
 
+/* Make price labels smaller and quieter than the amounts. */
 .prices span {
   color: #C9C5AE;
   font-size: 11px;
 }
 
+/* Mark a menu error with the same accent used for important details. */
 .error {
   border-left: 2px solid #D3BB7B;
   padding-left: 16px;
 }
 
+/* Keep the short project description at a comfortable reading width. */
 #about {
   max-width: 780px;
   padding: 48px 0;
 }
 
+/* Use muted text for the project information. */
 #about p {
   color: #C9C5AE;
 }
 
+/* Use a smaller heading on the project information page. */
 #about h1 {
   font-size: 40px;
 }
 
+/* Adapt spacing, headings and meal rows for narrow screens. */
 @media (max-width: 575px) {
+  /* Reduce the gap between the brand and navigation. */
   .site-header {
     gap: 12px;
   }
 
+  /* Bring navigation links closer together on small screens. */
   nav ul {
     gap: 16px;
   }
 
+  /* Reduce vertical space around the introductory heading. */
   .intro {
     padding: 40px 0 32px;
   }
 
+  /* Keep the main heading within the mobile width. */
   h1 {
     font-size: 44px;
   }
 
+  /* Reduce the card padding to leave more room for menu text. */
   .restaurant {
     padding: 22px 16px;
   }
 
+  /* Place prices below the description instead of in a second column. */
   .dish {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
+  /* Let price groups wrap and align them with the description. */
   .prices {
     display: flex;
     flex-wrap: wrap;

@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="sk">
+<!-- Page metadata and locally stored styles and scripts. -->
 <head>
+  <!-- UTF-8 keeps Slovak accents; viewport enables the mobile layout. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Na obed | Obedové menu v okolí fakulty</title>
+  <!-- Load Bootstrap first so our stylesheet can override its appearance. -->
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Defer runs scripts after HTML parsing, in this dependency order. -->
   <script src="vendor/jquery.min.js" defer></script>
   <script src="js/parsers.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
 <body>
+  <!-- Shared header with the site name and navigation. -->
   <header class="container site-header">
     <a class="brand" href="index.html">Na obed</a>
+    <!-- Navigation is an unordered list, as required by the assignment. -->
     <nav>
       <ul>
         <li><a href="#menu">Menu</a></li>
@@ -22,27 +28,36 @@
     </nav>
   </header>
 
+  <!-- Main content uses Bootstrap's responsive container width. -->
   <main class="container">
+    <!-- Introductory heading above the controls. -->
     <div class="intro">
       <h1>Dobrý obed<br>Na dosah</h1>
     </div>
 
+    <!-- Data updates are separate from choosing which menu to display. -->
     <div class="controls">
+      <!-- Refresh reads local copies again; clear removes cached menus. -->
       <div class="actions">
         <button id="refresh" class="btn">Aktualizovať menu</button>
         <button id="clear" class="btn secondary-button">Vymazať údaje</button>
       </div>
+      <!-- Overall result and separate timestamps are filled by JavaScript. -->
       <p id="status">Načítavam menu…</p>
       <div id="updates"></div>
     </div>
 
+    <!-- Restaurant and day selection affect only the displayed menu. -->
     <section id="menu">
       <h2>Obedové menu</h2>
+      <!-- JavaScript inserts one radio tab for each configured restaurant. -->
       <fieldset id="filters">
         <legend class="visually-hidden">Reštaurácia</legend>
       </fieldset>
+      <!-- The label is connected to the native day selector by its ID. -->
       <div class="day-control">
         <label for="day">Deň</label>
+        <!-- Numeric values match DAY_NAMES; weekend choices depend on the restaurant. -->
         <select id="day" class="form-select">
           <option value="0">Pondelok</option>
           <option value="1">Utorok</option>
@@ -51,9 +66,11 @@
           <option value="4">Piatok</option>
           <option value="5">Sobota</option>
           <option value="6">Nedeľa</option>
+          <!-- This value displays every day supplied by the selected restaurant. -->
           <option value="all">Celý týždeň</option>
         </select>
       </div>
+      <!-- JavaScript inserts only the selected restaurant's card here. -->
       <div id="cards"></div>
     </section>
   </main>

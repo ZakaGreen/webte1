@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="sk">
+<!-- Metadata, favicon and the same local styles as the menu page. -->
 <head>
+  <!-- UTF-8 and the viewport keep Slovak text and mobile rendering correct. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>O projekte | Na obed</title>
+  <!-- Bootstrap provides base styles; our stylesheet supplies the olive theme. -->
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="vendor/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- Shared site header and links between the two pages. -->
   <header class="container site-header">
     <a class="brand" href="index.html">Na obed</a>
+    <!-- The menu link returns directly to the restaurant selection. -->
     <nav>
       <ul>
         <li><a href="index.html#menu">Menu</a></li>
@@ -18,12 +23,17 @@
       </ul>
     </nav>
   </header>
+  <!-- Brief source, processing and library information required by the assignment. -->
   <main id="about" class="container">
     <h1>O projekte</h1>
-    <p>Zdroje menu: <a href="https://eatandmeet.sk/tyzdenne-menu">Eat &amp; Meet</a>
-      a <a href="http://www.freefood.sk/menu/#fayn-food">Fayn Food</a>.</p>
+    <!-- Original restaurant pages corresponding to the saved HTML copies. -->
+    <p>Zdroje menu: <a href="https://eatandmeet.sk/tyzdenne-menu">Eat &amp; Meet</a>,
+      <a href="http://www.freefood.sk/menu/#fayn-food">Fayn Food</a>
+      a <a href="https://www.restauracia-drag.sk/denne-menu">DRAG</a>.</p>
+    <!-- Explain how data moves from the local file into the browser cache. -->
     <p>Menu sa načítava z lokálnych HTML kópií pomocou Fetch API, spracúva cez DOMParser
       a ukladá do localStorage.</p>
+    <!-- Credit the required CSS and JavaScript libraries. -->
     <p>Použité knižnice: <a href="https://getbootstrap.com/">Bootstrap 5.3.8</a> pre vzhľad
       a <a href="https://jquery.com/">jQuery 3.7.1</a> pre ovládanie a zobrazenie údajov.</p>
   </main>

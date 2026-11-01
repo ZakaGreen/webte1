@@ -71,3 +71,37 @@ PASS: No uncaught JavaScript errors or external requests
 
 Snímky otváracích hodín a víkendového menu boli vizuálne skontrolované.
 V prehliadači aplikácie bolo otvorené a skontrolované sobotné menu Eat & Meet.
+
+DRAG a komentáre vlastného kódu — 1. 11. 2026
+
+Chrome 155.0.8059.39
+PASS: Three real local sources and timestamps; Eat & Meet has 70 meals, Fayn Food 20, DRAG 15
+PASS: DRAG has five weekdays; soup text and two-column main-dish tables match the saved source
+PASS: Portions and numbered allergens are separated; pizza description slashes remain in the name
+PASS: Soup markup variants, empty table rows and a trailing comma in allergens are handled
+PASS: No dates, separate soup prices or ISIC prices are invented for DRAG
+PASS: A missing weekday stays empty; changed page or table markup reports an error
+PASS: Existing Eat & Meet and Fayn Food parser output matches the previous version exactly
+PASS: One visible restaurant; day/week selection and radio-arrow navigation do not fetch sources
+PASS: Switching from an Eat & Meet weekend to DRAG selects Monday and disables weekend options
+PASS: DRAG hours appear above dishes; all three restaurants fit 320/375/768/1440 px
+PASS: Same-day cache, forced refresh, independently expired DRAG cache and clearing all three keys
+PASS: Refresh preserves the selected DRAG day; clearing removes timestamps and preserves unrelated storage
+PASS: Failed DRAG requests or changed source markup leave the other two menus usable; retry recovers
+PASS: About links all three sources and fits 320 px
+PASS: No uncaught JavaScript errors or external requests during the Chrome checks
+
+Firefox 157.0.1
+PASS: Three tabs; DRAG has 15 dishes and preserves pizza descriptions and missing soup prices
+PASS: Day/week selection, opening hours and reset from an Eat & Meet weekend to Monday
+PASS: One visible restaurant; all three menus fit 320/768/1440 px
+PASS: Same-day cache skips source requests; refresh reads all three files
+PASS: Clearing removes all three menu caches and timestamps, preserving unrelated storage
+PASS: About links the DRAG source
+
+Komentáre nemenia existujúce spracovanie údajov ani vzhľad.
+Po odstránení komentárov sa pôvodné parsery, zvyšok script.js, CSS, index.html a SVG zhodujú s predchádzajúcou verziou.
+Rozdiel vo funkčnom kóde tvorí nový parser DRAG a jeho položka v SOURCES.
+Úplná HTML kópia DRAG sa zhoduje so stiahnutým súborom; jej pôvodné formátovanie zostalo zachované.
+Desktopové a mobilné snímky DRAG boli vizuálne skontrolované.
+V prehliadači aplikácie bolo otvorené a skontrolované pondelkové menu DRAG.

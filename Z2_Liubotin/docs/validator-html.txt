@@ -59,3 +59,27 @@ HTML po vykreslení menu (Eat & Meet, všetkých sedem dní a otváracie hodiny)
 
 Výsledok oboch nových kontrol: 0 chýb, 0 upozornení.
 Vlastné CSS sa nemenilo.
+
+DRAG a komentáre vlastného kódu — 1. 11. 2026
+
+index.html
+SHA-256: 1a3ca5b487a86f1558b510667df79f3899dff954fcdb86bd01422cc7e00f7364
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+about.html
+SHA-256: 80cccef6a3a443b17c62a8d630cb84de1e88bf77467e1e728818369b2993a3fb
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+HTML po vykreslení menu (DRAG, celý týždeň, lokálna kópia)
+{
+  "version": "26.10.18",
+  "messages": []
+}
+
+Výsledok všetkých troch nových kontrol: 0 chýb, 0 upozornení.
