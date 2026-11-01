@@ -125,43 +125,42 @@ function renderUpdates() {
 function renderCards() {
   // Clear the previous card and find the restaurant selected by its radio tab.
   const cards = $("#cards").empty();
-  for (const source of SOURCES) {
-    // Keep every unselected restaurant out of the menu area.
-    if (!$("#show-" + source.id).prop("checked")) {
-      continue;
-    }
-    // Switch to Monday if this restaurant does not offer the selected day.
-    if (Number($("#day").val()) >= source.dayCount) {
-      $("#day").val("0");
-    }
-    // Hide and disable weekend choices for restaurants with weekday menus.
-    $("#day option[value='5'], #day option[value='6']")
-      .prop("hidden", source.dayCount === 5).prop("disabled", source.dayCount === 5);
-    // Place the source link and usual opening hours above the dishes.
-    const card = $("<article>").addClass("restaurant");
-    const link = $("<a>").attr("href", source.website).text(source.name);
-    card.append($("<h3>").append(link));
-    card.append($("<p>").text("Bežné otváracie hodiny: " + source.openingHours));
-    // Show a state message until this restaurant's menu is ready.
-    const result = results[source.id];
-    if (!result || result.state === "loading") {
-      card.append($("<p>").text("Načítavam menu…"));
-    } else if (result.state === "error") {
-      card.append($("<p>").addClass("error").text("Menu sa nepodarilo načítať."));
-    } else if (result.state === "empty") {
-      card.append($("<p>").text("Údaje boli vymazané. Kliknite na Aktualizovať menu."));
-    } else {
-      // Render either the chosen day or all days already loaded in memory.
-      const selectedDay = $("#day").val();
-      for (const day of result.days) {
-        // The select values match positions in DAY_NAMES; "all" accepts every day.
-        if (selectedDay === "all" || day.day === DAY_NAMES[selectedDay]) {
-          card.append(createDay(day));
-        }
+  const source = SOURCES.find((source) => $("#show-" + source.id).prop("checked"));
+  // Leave the menu empty if no restaurant is selected.
+  if (!source) {
+    return;
+  }
+  // Switch to Monday if this restaurant does not offer the selected day.
+  if (Number($("#day").val()) >= source.dayCount) {
+    $("#day").val("0");
+  }
+  // Hide and disable weekend choices for restaurants with weekday menus.
+  $("#day option[value='5'], #day option[value='6']")
+    .prop("hidden", source.dayCount === 5).prop("disabled", source.dayCount === 5);
+  // Place the source link and usual opening hours above the dishes.
+  const card = $("<article>").addClass("restaurant");
+  const link = $("<a>").attr("href", source.website).text(source.name);
+  card.append($("<h3>").append(link));
+  card.append($("<p>").text("Bežné otváracie hodiny: " + source.openingHours));
+  // Show a state message until this restaurant's menu is ready.
+  const result = results[source.id];
+  if (!result || result.state === "loading") {
+    card.append($("<p>").text("Načítavam menu…"));
+  } else if (result.state === "error") {
+    card.append($("<p>").addClass("error").text("Menu sa nepodarilo načítať."));
+  } else if (result.state === "empty") {
+    card.append($("<p>").text("Údaje boli vymazané. Kliknite na Aktualizovať menu."));
+  } else {
+    // Render either the chosen day or all days already loaded in memory.
+    const selectedDay = $("#day").val();
+    for (const day of result.days) {
+      // The select values match positions in DAY_NAMES; "all" accepts every day.
+      if (selectedDay === "all" || day.day === DAY_NAMES[selectedDay]) {
+        card.append(createDay(day));
       }
     }
-    cards.append(card);
   }
+  cards.append(card);
 }
 
 // Reuse today's cache or fetch and parse the restaurant's local HTML copy.

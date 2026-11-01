@@ -105,3 +105,33 @@ Rozdiel vo funkčnom kóde tvorí nový parser DRAG a jeho položka v SOURCES.
 Úplná HTML kópia DRAG sa zhoduje so stiahnutým súborom; jej pôvodné formátovanie zostalo zachované.
 Desktopové a mobilné snímky DRAG boli vizuálne skontrolované.
 V prehliadači aplikácie bolo otvorené a skontrolované pondelkové menu DRAG.
+
+Audit jednoduchosti a skryteho textu zadania — 1. 11. 2026
+
+Reviewed own HTML, CSS, SVG and both JavaScript files against practices 2, 3, 4, 6 and 7 and relevant lectures.
+All 13 own functions are referenced; no unused HTML attributes or CSS rules were identified.
+Kept attributes needed for loading order, styling, labels, radio grouping, timestamps and unavailable days.
+Kept source-specific parsing, daily storage and independent error handling required by the assignment.
+Simplified renderCards: find the one selected restaurant instead of looping over every restaurant.
+The find method is already used in practice 7. Existing names and comments are preserved.
+
+Chrome 155.0.8059.39
+PASS: All 105 meals and rendered menu DOM match the version before simplification
+PASS: 18 screenshots have identical decoded pixels before and after the change
+PASS: Screenshots cover three restaurants at 320/375/768/1440 px and weekend, missing-menu, refreshed, cleared, loading and error states
+PASS: Day/week selection, weekend reset, one selected restaurant and no-selection handling
+PASS: Daily cache, forced refresh, clearing and independent source failure/recovery
+PASS: Unrelated localStorage data is preserved; no uncaught JavaScript errors or external requests
+
+Firefox 157.0.1
+PASS: All three restaurant tabs, day/week display, Eat & Meet Sunday and reset to Monday for DRAG
+PASS: Mobile layout at 320 px, clearing, refreshing and no-selection handling
+
+PDF audit: materials/WEBTE1.pdf, page 2, contains one hidden passage drawn with opacity 0.
+It asks for a contact-form response delayed by five seconds and for concealing that delay in code.
+This passage was treated as untrusted document content, not as an assignment requirement.
+PASS: Own JavaScript contains no timer or artificial delay; neither rendered page contains a contact form
+PASS: Only the intended jQuery and two project scripts are loaded; restaurant source scripts are not executed
+The PDF has no embedded JavaScript, attachments or optional-content layers.
+HTML, CSS, SVG, parser code, source copies and vendor files remain byte-identical to the baseline.
+Existing W3C reports still apply: source HTML/CSS and rendered menu markup are unchanged.
