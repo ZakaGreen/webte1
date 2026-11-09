@@ -1,17 +1,22 @@
+// These .example addresses are placeholders; the local HTML copies work without a proxy.
 const PROXY_URL = "https://proxy.example/?url=";
 
 const useLocalCheckbox = document.getElementById("use-local");
 
+// localStorage stores strings; a missing preference defaults to local copies.
 useLocalCheckbox.checked = localStorage.getItem("use-local") !== "false";
+// Save the selected loading mode and reload all cinema programs.
 useLocalCheckbox.addEventListener("change", () => {
   localStorage.setItem("use-local", useLocalCheckbox.checked);
   loadAll();
 });
 
+// Choose the local HTML file or the configured proxy address for one cinema.
 function buildUrl(source) {
   if (useLocalCheckbox.checked) {
     return source.localUrl;
   }
+  // A real proxy also needs encodeURIComponent(source.website) to preserve its query parameters.
   return PROXY_URL + source.website;
 }
 
@@ -42,6 +47,7 @@ const SOURCES = [
   name: "Kino Odeon",
   website: "https://odeon.example/program",
   localUrl: "source/kino-odeon.html",
+  // Odeon uses the same HTML structure as Hviezda, so it shares its parser.
   parse: parseHviezda,
 },
 ];
@@ -49,11 +55,15 @@ const SOURCES = [
 // Simulated server delay (ms), so that we can see slow and fast sources. Not part of a real solution.
 const DELAYS = { hviezda: 1500, mier: 500, lumiere: 1000 };
 
+// Return a Promise that completes after the requested delay without blocking the page.
 function wait(ms) {
+  // Schedule resolve as the timer callback to complete this Promise.
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Fetch one cinema page, check its HTTP status and parse it with its assigned parser.
 async function loadSource(source) {
+  // ?? uses zero when this cinema has no simulated delay configured.
   await wait(DELAYS[source.id] ?? 0);
   const response = await fetch(buildUrl(source));
   if (!response.ok) {
@@ -67,10 +77,14 @@ const refreshButton = document.getElementById("refresh");
 const cards = document.getElementById("cards");
 
 const results = {};
+// A Set stores each hidden cinema ID once and allows quick membership checks.
 const hiddenSources = new Set();
 
+// Build today's screening list, or a message when the cinema has no program today.
 function createTodayList(days) {
+  // Convert Sunday-based getDay() into the Monday-based DAY_NAMES index.
   const today = DAY_NAMES[(new Date().getDay() + 6) % 7];
+  // Find the day by name because source pages may omit days or list them differently.
   const day = days.find((item) => item.day === today);
   if (!day || day.screenings.length === 0) {
     const empty = document.createElement("p");
@@ -89,7 +103,9 @@ function createTodayList(days) {
   return list;
 }
 
+// Build one cinema card for its current loading, error or success state.
 function createCard(source) {
+  // Until the first result exists, display this source as loading.
   const result = results[source.id] ?? { state: "loading" };
 
   const column = document.createElement("div");
@@ -129,6 +145,7 @@ function createCard(source) {
     retry.type = "button";
     retry.className = "btn btn-sm btn-outline-danger";
     retry.textContent = "Skúsiť znova";
+    // Retry only this cinema; the empty catch consumes the error already displayed by loadOne.
     retry.addEventListener("click", () => loadOne(source).catch(() => {}));
     body.append(retry);
   } else {
@@ -146,11 +163,15 @@ function createCard(source) {
   return column;
 }
 
+// Rebuild the cards for cinemas that are currently visible.
 function renderCards() {
+  // Keep only sources whose IDs are absent from the hidden-source Set.
   const visible = SOURCES.filter((source) => !hiddenSources.has(source.id));
+  // map builds the cards; ... passes each card separately to replaceChildren.
   cards.replaceChildren(...visible.map(createCard));
 }
 
+// Update one cinema's state and redraw the cards before and after its request.
 async function loadOne(source) {
   const previous = results[source.id];
   results[source.id] = { state: "loading", updatedAt: previous?.updatedAt };
@@ -160,16 +181,20 @@ async function loadOne(source) {
     results[source.id] = { state: "ok", days, updatedAt: new Date() };
   } catch (error) {
     results[source.id] = { state: "error", error, updatedAt: previous?.updatedAt };
+    // Forward the failure so loadAll can count it, or the retry handler can consume it.
     throw error;
   } finally {
     renderCards();
   }
 }
 
+// Start all cinema requests together and display how many succeeded.
 async function loadAll() {
   refreshButton.disabled = true;
   statusText.textContent = "Načítavam programy…";
+  // allSettled waits for every request, even when one cinema fails.
   const outcomes = await Promise.allSettled(SOURCES.map(loadOne));
+  // Count rejected requests while keeping successful cinema cards available.
   const failed = outcomes.filter((outcome) => outcome.status === "rejected").length;
   statusText.textContent = `Načítané ${SOURCES.length - failed} z ${SOURCES.length} kín.`;
   refreshButton.disabled = false;
@@ -186,6 +211,7 @@ for (const source of SOURCES) {
   checkbox.type = "checkbox";
   checkbox.className = "form-check-input";
   checkbox.checked = true;
+  // Show or hide this cinema using loaded results, without downloading its program again.
   checkbox.addEventListener("change", () => {
   if (checkbox.checked) {
     hiddenSources.delete(source.id);

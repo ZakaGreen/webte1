@@ -11,20 +11,30 @@ const weatherUrl =
     "&forecast_days=1" +
     "&timezone=auto";
 
+// Fetch starts an asynchronous request; each then callback uses the previous result.
 fetch(weatherUrl)
+    // Read the response body and convert JSON text into a JavaScript object.
     .then(response => response.json())
+    // Display the weather values returned by the API.
     .then(data => {
         document.getElementById("weather").innerHTML =
             "Mesto: Bratislava<br>" +
             "Teplota: " + data.current.temperature_2m + " °C<br>" +
             "Vietor: " + data.current.wind_speed_10m + " km/h<br>" +
             "Vlhkosť: " + data.current.relative_humidity_2m + " %<br>" +
+            // The daily forecast is an array; index 0 contains today's value.
             "Maximálna pravdepodobnosť zrážok dnes: " +
                 data.daily.precipitation_probability_max[0] + " %<br>" +
             "Čas údajov: " + data.current.time;
     })
+    // Show a readable message if fetching or processing the weather fails.
     .catch(error => {
-        console.error("Chyba:", error);
+
+        document.getElementById("weather").innerHTML =
+            "Nepodarilo sa načítať počasie.";
+
+        console.error(error);
+
     });
 
 
@@ -32,11 +42,13 @@ fetch(weatherUrl)
 // 2. LEAFLET MAP
 // ========================================
 
+// Leaflet uses [latitude, longitude]; the second setView argument is the zoom level.
 const map = L.map("map").setView(
     [48.151965, 17.072995],
     15
 );
 
+// Leaflet replaces {z}, {x} and {y} with the zoom level and tile coordinates.
 L.tileLayer(
     "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     {
