@@ -1,3 +1,5 @@
+[English](README.md) · [Slovenčina](README.sk.md) · [Русский](README.ru.md)
+
 # Web Technologies Coursework
 
 University assignments for **WEBTE1 at FEI STU**, 2026/2027. These projects document my practice with HTML, CSS, JavaScript, browser APIs and processing structured data from HTML.
