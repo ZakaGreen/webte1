@@ -32,6 +32,38 @@ async function loadMenu() {
         price: price
     });
   }
+  //Výsledné pole sa vypíše do konzoly prehliadača (console.log)
+  console.log(meals);
+  renderMenu(meals);
 }
+
+function renderMenu(meals) {
+  //<div id="menu"></div> загружаем сюда html элементы спаршенного сайта
+    const menu = document.querySelector("#menu");
+
+  for (const meal of meals) {
+    const card = document.createElement("article"); 
+    card.classList.add("meal-card");
+    const title = document.createElement("h3"); //записываем это название внутрь <h3>
+    const category = document.createElement("p"); //<p>	- Абзац текста
+    category.classList.add("meal-category");
+    const price = document.createElement("p");
+    price.classList.add("meal-price");
+
+    title.textContent = meal.name;
+    category.textContent = meal.category;
+    if (meal.price === null) {
+      price.textContent = "cena neuvedená";
+    } else {
+      price.textContent = meal.price.toFixed(2) + " €"; //toFixed() возвращает строку, а не число. 2 - количество знаков после точки
+    }
+
+    card.appendChild(title); //помещаем <h3> внутрь <article>
+    card.appendChild(category);
+    card.appendChild(price);
+    menu.appendChild(card); //помещаем готовый <article> в нашу страницу, внутрь #menu
+  }
+}
+
 
 loadMenu();
