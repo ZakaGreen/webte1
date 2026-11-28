@@ -136,9 +136,9 @@ const translations = {
     "ru": "Распечатать CV"
   },
   "cvIntro": {
-    "sk": "Študujem aplikovanú informatiku a zaujímam sa o vývoj softvéru a AI.",
-    "en": "I study Applied Informatics and am interested in software development and AI.",
-    "ru": "Изучаю прикладную информатику и интересуюсь разработкой программного обеспечения и ИИ."
+    "sk": "Študujem aplikovanú informatiku na FEI STU. Hľadám stáž alebo prácu do 20 hodín týždenne v Bratislave alebo na diaľku v oblasti AI, analýzy dát či automatizácie.",
+    "en": "I study Applied Informatics at FEI STU. I am looking for an internship or part-time work in AI, data analysis or automation in Bratislava or remotely, up to 20 hours per week.",
+    "ru": "Учусь на прикладной информатике в FEI STU. Ищу стажировку или работу до 20 часов в неделю в Братиславе или удалённо в области ИИ, анализа данных или автоматизации."
   },
   "contact": {
     "sk": "Kontakt",
@@ -191,9 +191,9 @@ const translations = {
     "ru": "Стажировка Erasmus+ · Университет Эрджиес"
   },
   "internshipText": {
-    "sk": "Podieľal som sa na vývoji skúškového modulu platformy UniMetrik. Vyskúšal som si frontend, backend a databázy. Pracoval som na integrácii s Canvas LMS, testoch a banke otázok; skúmal som aj automatické zostavovanie skúšok pomocou metaheuristických algoritmov.",
-    "en": "I contributed to the development of the examination module of the UniMetrik platform. I tried frontend, backend and database work. I worked on Canvas LMS integration, tests and the question bank, and explored automatic exam assembly using metaheuristic algorithms.",
-    "ru": "Участвовал в разработке экзаменационного модуля платформы UniMetrik. Попробовал себя во фронтенде, бэкенде и работе с базами данных. Работал над интеграцией с Canvas LMS, тестами и банком вопросов; также изучал автоматическое составление экзаменов с помощью метаэвристических алгоритмов."
+    "sk": "Pre platformu UniMetrik som navrhol databázovú schému PostgreSQL a pripravil vzorové dáta. V Django REST Framework som vytvoril API pre predmety, vyučujúcich a študijné skupiny a napísal deväť automatizovaných testov. Doplnil som aj číslovanie výsledkov vzdelávania vrátane migrácie existujúcich záznamov.",
+    "en": "I designed a PostgreSQL schema and prepared sample data for UniMetrik. I built a Django REST API for courses, teaching assignments and student groups and wrote nine automated tests. I also added numbered learning outcomes and migrated existing records.",
+    "ru": "Для UniMetrik я разработал схему PostgreSQL и подготовил демонстрационные данные. Написал REST API на Django для дисциплин, назначений преподавателей и учебных групп, а также девять автоматизированных тестов. Добавил нумерацию результатов обучения с миграцией существующих записей."
   },
   "supportDates": {
     "sk": "15. 8. 2023 – 15. 1. 2024",
