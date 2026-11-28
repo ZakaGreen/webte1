@@ -92,7 +92,7 @@ if (schedule) { // Runs schedule code only on the page that contains the table.
     });
 
     if (currentLesson) { // Uses this branch when a lesson is happening now.
-      status.textContent = `Práve prebieha: ${currentLesson.querySelector('strong').textContent}.`; // Shows the current lesson name.
+      status.textContent = translate('currentClass', { lesson: currentLesson.querySelector('strong').textContent }); // Shows the current lesson name.
     } else { // Searches for the next lesson when none is happening now.
       let nextLesson = null; // Starts without a detected next lesson.
       let nextTime = null; // Starts without a detected next lesson time.
@@ -115,17 +115,17 @@ if (schedule) { // Runs schedule code only on the page that contains the table.
       }
 
       if (nextLesson) { // Uses this branch when a future lesson was found.
-        const date = nextTime.toLocaleDateString('sk-SK', { weekday: 'long', day: 'numeric', month: 'numeric' }); // Formats its Slovak date.
-        const time = nextTime.toLocaleTimeString('sk-SK', { hour: '2-digit', minute: '2-digit' }); // Formats its Slovak time.
-        status.textContent = `Teraz nemám vyučovanie. Najbližšie: ${nextLesson.querySelector('strong').textContent}, ${date} o ${time}.`; // Shows the next lesson details.
+        const date = nextTime.toLocaleDateString(language, { weekday: 'long', day: 'numeric', month: 'numeric' }); // Formats the date in the selected language.
+        const time = nextTime.toLocaleTimeString(language, { hour: '2-digit', minute: '2-digit', hour12: false }); // Keeps the time in 24-hour format.
+        status.textContent = translate('nextClass', { lesson: nextLesson.querySelector('strong').textContent, date: date, time: time }); // Shows the next lesson details.
       } else { // Uses this branch when no future lesson was found.
-        status.textContent = 'Teraz nemám vyučovanie. Do konca platnosti rozvrhu už nemám ďalšiu hodinu.'; // Explains that no future lesson remains.
+        status.textContent = translate('noMoreClasses'); // Explains that no future lesson remains.
       }
     }
 
     const percent = Math.max(0, Math.min(100, (now - SEMESTER_START) / (SEMESTER_END - SEMESTER_START) * 100)); // Calculates progress from 0 to 100.
     progress.value = percent; // Updates the progress bar value.
-    progressText.textContent = `${Math.floor(percent)} % obdobia od 14. 9. do 13. 12. 2026 uplynulo.`; // Shows the rounded progress percentage.
+    progressText.textContent = translate('semesterProgress', { percent: Math.floor(percent) }); // Shows the rounded progress percentage.
   }
 
   updateSchedule(); // Updates the schedule immediately after the page loads.
@@ -145,18 +145,25 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
   const pointName = document.querySelector('#map-name'); // Finds the new point name input.
   const storageKey = 'webte1-map-points'; // Stores the localStorage key used for saved points.
   const destinations = [ // Stores the two fixed map destinations.
-    { name: 'Škola — FEI STU', coords: [48.151965, 17.072995] }, // Stores the school name and coordinates.
-    { name: 'Domov — ŠD Mladosť', coords: [48.1589409, 17.0640966] } // Stores the home name and coordinates.
+    { name: translate('school'), coords: [48.151965, 17.072995] }, // Stores the school name and coordinates.
+    { name: translate('home'), coords: [48.1589409, 17.0640966] } // Stores the home name and coordinates.
   ];
   let points = []; // Stores user-created map points.
   const markers = []; // Stores all Leaflet marker objects.
   let addingPoint = false; // Tracks when the next map click should add a point.
 
   // Map setup follows the example from practice.
-  const map = L.map('map').setView([48.151965, 17.072995], 15); // Creates the map with its initial center and zoom.
+  const map = L.map('map', { zoomControl: false }).setView([48.151965, 17.072995], 15); // Creates the map with its initial center and zoom.
+  L.control.zoom({ zoomInTitle: translate('zoomIn'), zoomOutTitle: translate('zoomOut') }).addTo(map);
+  // Translate the close control created by Leaflet when a popup opens.
+  map.on('popupopen', event => {
+    const closeButton = event.popup.getElement().querySelector('.leaflet-popup-close-button');
+    closeButton.title = translate('closePopup');
+    closeButton.setAttribute('aria-label', translate('closePopup'));
+  });
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { // Creates the OpenStreetMap tile layer.
     maxZoom: 19, // Sets the greatest allowed map zoom.
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' // Shows the required map source credit.
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' + translate('contributors') // Shows the required map source credit.
   }).addTo(map); // Adds the tile layer to the map.
   const line = L.polyline([], { className: 'map-line' }).addTo(map); // Creates an empty line for the measured distance.
 
@@ -215,7 +222,7 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
     const point = destinations.concat(points)[pointSelect.value]; // Gets the selected starting point.
     const target = destinations[targetSelect.value]; // Gets the selected fixed destination.
     const distance = getDistance(point.coords, target.coords).toFixed(2); // Calculates and rounds the distance.
-    const description = `${point.name} → ${target.name}: ${distance} km vzdušnou čiarou.`; // Builds the Slovak result text.
+    const description = translate('distanceResult', { point: point.name, target: target.name, distance: distance }); // Builds the result in the selected language.
     distanceText.textContent = description; // Places the result on the page.
     distanceText.hidden = false; // Shows the distance result.
     line.setLatLngs([point.coords, target.coords]); // Draws a line between the selected points.
@@ -233,7 +240,7 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
     points = saved.filter(point => point && typeof point.name === 'string' && // Checks the point object and its name.
       Array.isArray(point.coords) && point.coords.length === 2 && point.coords.every(Number.isFinite)); // Validates each saved point.
   } catch { // Handles invalid or unavailable saved data.
-    message.textContent = 'Uložené body sa nepodarilo načítať.'; // Shows an error when saved data cannot be read.
+    message.textContent = translate('loadPointsError'); // Shows an error when saved data cannot be read.
     message.hidden = false; // Makes the loading error visible.
   }
   points.forEach(addPoint); // Adds every valid saved point to the map.
@@ -243,7 +250,7 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
     event.preventDefault(); // Stops the form from reloading the page.
     if (!pointName.value.trim()) return; // Stops when the point name is empty.
     addingPoint = true; // Makes the next map click create a point.
-    message.textContent = 'Teraz kliknite na miesto na mape.'; // Asks the user to choose a map position.
+    message.textContent = translate('placePoint'); // Asks the user to choose a map position.
     message.hidden = false; // Shows the instruction message.
   });
 
@@ -262,7 +269,7 @@ if (mapElement && typeof L !== 'undefined') { // Runs map code only when the map
       localStorage.setItem(storageKey, JSON.stringify(points)); // Saves points as JSON in the browser.
       message.hidden = true; // Hides the instruction after a successful save.
     } catch { // Handles browsers that block localStorage saving.
-      message.textContent = 'Bod je na mape, ale prehliadač nepovolil uloženie. Po obnovení stránky sa nemusí zachovať.'; // Explains that saving failed.
+      message.textContent = translate('savePointError'); // Explains that saving failed.
       message.hidden = false; // Shows the saving error.
     }
   });

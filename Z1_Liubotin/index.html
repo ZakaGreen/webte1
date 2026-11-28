@@ -3,29 +3,38 @@
   <head> 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil | Ilia Liubotin</title>
+    <title data-i18n="profilePageTitle">Profil | Ilia Liubotin</title>
     <!-- Description for search results -->
-    <meta name="description" content="Profil študenta aplikovanej informatiky Ilii Liubotina." />
+    <meta name="description" content="Profil študenta aplikovanej informatiky Ilii Liubotina." data-i18n="profileDescription" />
     <!-- Title for shared links -->
-    <meta property="og:title" content="Ilia Liubotin | Profil" />
+    <meta property="og:title" content="Ilia Liubotin | Profil" data-i18n="profileOgTitle" />
     <!-- Description for shared links -->
-    <meta property="og:description" content="Na tejto stránke predstavujem seba, svoje štúdium a záujmy." />
+    <meta property="og:description" content="Na tejto stránke predstavujem seba, svoje štúdium a záujmy." data-i18n="profileOgDescription" />
     <meta property="og:image" content="https://webte1.fei.stuba.sk/~xliubotin/Z1_Liubotin/img/portrait-sketch.png" />
     <link rel="icon" href="favicon.png" />
-    <link rel="stylesheet" href="css/styles.css?v=20261011-1" />
-    <script src="js/script.js?v=20261011-1" defer></script>
+    <link rel="stylesheet" href="css/styles.css?v=20261128-1" />
+    <script src="js/translations.js?v=20261128-1" defer></script>
+    <script src="js/script.js?v=20261128-1" defer></script>
   </head>
   <body>
     <!-- Accessibility bonus: Keyboard navigation to the main content. -->
-    <a class="skip-link" href="#main">Preskočiť na obsah</a>
+    <a class="skip-link" href="#main" data-i18n="skip">Preskočiť na obsah</a>
     <header class="site-header container">
       <!-- Homepage link -->
       <a class="monogram" href="index.html">IL</a>
       <!-- Groups the site name and slogan -->
       <div>
         <p class="site-name">Ilia Liubotin</p>
-        <p class="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
+        <p class="slogan" data-i18n="slogan">Programujem, svet objavujem a pri čaji spomaľujem.</p>
       </div>
+      <label class="language-switch" hidden>
+        <span data-i18n="language">Jazyk</span>
+        <select id="language">
+          <option value="sk">Slovenčina</option>
+          <option value="en">English</option>
+          <option value="ru">Русский</option>
+        </select>
+      </label>
     </header>
 
     <!-- Navigation area with links to the site pages -->
@@ -33,63 +42,63 @@
       <!-- button performs an action: shows or hides the menu list -->
       <!-- hidden hides the button until JavaScript is ready -->
       <!-- Accessibility bonus: Keyboard control of the mobile menu. -->
-      <button class="menu-toggle" hidden>☰ Menu</button>
+      <button class="menu-toggle" hidden data-i18n="menu">☰ Menu</button>
       <!-- a links navigate to pages; ul and li organize them into a list -->
       <ul class="nav-list" id="nav-list">
-        <li><a href="index.html" aria-current="page">Profil</a></li>
-        <li><a href="pages/cv.html">Životopis</a></li>
-        <li><a href="pages/workspace.html">Pracovné prostredie</a></li>
-        <li><a href="pages/schedule.html">Kedy ma zastihnete</a></li>
-        <li><a href="pages/map.html">Kde ma nájdete</a></li>
+        <li><a href="index.html" aria-current="page" data-i18n="profile">Profil</a></li>
+        <li><a href="pages/cv.html" data-i18n="cv">Životopis</a></li>
+        <li><a href="pages/workspace.html" data-i18n="workspace">Pracovné prostredie</a></li>
+        <li><a href="pages/schedule.html" data-i18n="schedule">Kedy ma zastihnete</a></li>
+        <li><a href="pages/map.html" data-i18n="map">Kde ma nájdete</a></li>
       </ul>
     </nav>
 
     <main id="main" class="container">
       <section class="hero">
         <div class="hero-text">
-          <p class="eyebrow">Študent aplikovanej informatiky</p>
+          <p class="eyebrow" data-i18n="student">Študent aplikovanej informatiky</p>
           <h1>Ilia<br />Liubotin.</h1>
-          <p>Programujem, učím sa a skúmam možnosti umelej inteligencie. Svoje nápady mením na malé projekty.</p>
-          <a class="button" href="pages/cv.html">Môj životopis ↗</a>
+          <p data-i18n="intro">Programujem, učím sa a skúmam možnosti umelej inteligencie. Svoje nápady mením na malé projekty.</p>
+          <a class="button" href="pages/cv.html" data-i18n="cvLink">Môj životopis ↗</a>
         </div>
       </section>
 
       <section class="about section-space">
-        <h2>Zvedavosť ma posúva ďalej.</h2>
+        <h2 data-i18n="curiosity">Zvedavosť ma posúva ďalej.</h2>
         <!-- Main task and accessibility bonus: Meaningful image alternative. -->
-        <img class="profile-photo" src="img/me.png?v=20261011-1" alt="Môj portrét v štýle kresby ceruzkou" width="1086" height="1448" loading="lazy" />
-        <p>Som Ilia a študujem aplikovanú informatiku na FEI STU v Bratislave. Najviac ma zaujíma programovanie a umelá inteligencia. Matematiku vnímam ako dôležitý základ pre obe oblasti. Zatiaľ získavam skúsenosti najmä cez školské zadania a projekty. Vytvoril som aj Telegram bota a niekoľko menších AI projektov. Počas stáže Erasmus+ v Turecku som si vyskúšal frontend, backend aj prácu s databázami.</p>
-        <p>Mimo programovania rád cestujem a spoznávam nové miesta. Už šesť rokov sa venujem čínskym čajom: všímam si ich chuť, skúšam ju opísať a pripravujem čajové ceremónie pre seba a priateľov. Pri čaji rád spomalím a meditujem. Zaujíma ma aj ekonomika a od roku 2022 sa venujem dlhodobému investovaniu. Chcem ďalej rozvíjať svoje programátorské schopnosti a tvoriť užitočné projekty.</p>
+        <img class="profile-photo" src="img/me.png?v=20261011-1" alt="Môj portrét v štýle kresby ceruzkou" width="1086" height="1448" loading="lazy" data-i18n="portraitAlt" />
+        <p data-i18n="aboutStudy">Som Ilia a študujem aplikovanú informatiku na FEI STU v Bratislave. Najviac ma zaujíma programovanie a umelá inteligencia. Matematiku vnímam ako dôležitý základ pre obe oblasti. Zatiaľ získavam skúsenosti najmä cez školské zadania a projekty. Vytvoril som aj Telegram bota a niekoľko menších AI projektov. Počas stáže Erasmus+ v Turecku som si vyskúšal frontend, backend aj prácu s databázami.</p>
+        <p data-i18n="aboutLife">Mimo programovania rád cestujem a spoznávam nové miesta. Už šesť rokov sa venujem čínskym čajom: všímam si ich chuť, skúšam ju opísať a pripravujem čajové ceremónie pre seba a priateľov. Pri čaji rád spomalím a meditujem. Zaujíma ma aj ekonomika a od roku 2022 sa venujem dlhodobému investovaniu. Chcem ďalej rozvíjať svoje programátorské schopnosti a tvoriť užitočné projekty.</p>
       </section>
 
       <section class="section-space">
-        <h2>Tri veci, ktoré ma vystihujú.</h2>
+        <h2 data-i18n="threeInterests">Tri veci, ktoré ma vystihujú.</h2>
         <ul class="interests">
           <li>
-            <h3>Programovanie a AI</h3>
-            <p>Učím sa cez vlastné aj školské projekty. Baví ma prepájať kód, matematiku a praktické nápady.</p>
+            <h3 data-i18n="programming">Programovanie a AI</h3>
+            <p data-i18n="programmingIntro">Učím sa cez vlastné aj školské projekty. Baví ma prepájať kód, matematiku a praktické nápady.</p>
           </li>
           <li>
-            <h3>Čajová kultúra</h3>
-            <p>V čaji hľadám chuť, sústredenie a pokoj. Ceremónie pripravujem pre radosť, pre seba a priateľov.</p>
+            <h3 data-i18n="tea">Čajová kultúra</h3>
+            <p data-i18n="teaIntro">V čaji hľadám chuť, sústredenie a pokoj. Ceremónie pripravujem pre radosť, pre seba a priateľov.</p>
           </li>
           <li>
-            <h3>Ekonomika a investovanie</h3>
-            <p>Zaujíma ma fungovanie ekonomiky. Investujem dlhodobo s cieľom vytvoriť si rezervu do budúcnosti.</p>
+            <h3 data-i18n="investing">Ekonomika a investovanie</h3>
+            <p data-i18n="investingIntro">Zaujíma ma fungovanie ekonomiky. Investujem dlhodobo s cieľom vytvoriť si rezervu do budúcnosti.</p>
           </li>
         </ul>
       </section>
 
       <aside class="motto">
-        <p class="motto-text">Čaj je pre mňa<br />chvíľa pokoja.</p>
-        <p>Spomaliť. Vnímať. Byť tu.</p>
+        <p class="motto-text" data-i18n="motto">Čaj je pre mňa<br />chvíľa pokoja.</p>
+        <p data-i18n="slowDown">Spomaliť. Vnímať. Byť tu.</p>
       </aside>
     </main>
 
     <footer class="site-footer container">
       <address>
         <a href="mailto:ilushkalubotin@gmail.com">ilushkalubotin@gmail.com</a><br />
-        <a href="tel:+421952060193">+421 952 060 193</a> · Bratislava, Slovensko
+        <a href="tel:+421952060193">+421 952 060 193</a> · <span data-i18n="location">Bratislava, Slovensko</span>
       </address>
       <p>2026</p>
     </footer>

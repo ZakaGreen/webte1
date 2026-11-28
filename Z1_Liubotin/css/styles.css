@@ -73,7 +73,7 @@ a {
 }
 
 /* Accessibility bonus: Show a clear focus state for keyboard controls. */
-a:focus-visible, button:focus-visible, summary:focus-visible, .map-controls select:focus-visible, .map-controls input:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible, .language-switch select:focus-visible, .map-controls select:focus-visible, .map-controls input:focus-visible {
   outline: 2px solid var(--color-accent); /* Draws a visible focus line. */
   outline-offset: 5px; /* Moves the focus outline away from the element. */
 }
@@ -95,7 +95,8 @@ address {
 }
 
 .site-header {
-  display: flex; /* Places child elements in a flexible row. */
+  display: flex;
+  flex-wrap: wrap; /* Places child elements in a flexible row. */
   align-items: center; /* Centers the flex items vertically. */
   gap: var(--space); /* Sets space between flex items. */
   padding: 1.5rem 0; /* Adds inner space at the top and bottom. */
@@ -151,6 +152,21 @@ address {
   border: 0;
   background: transparent;
   color: inherit;
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.language-switch select {
+  font: inherit;
+  padding: 0.35rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-brand);
+  color: var(--color-text);
 }
 
 /* ===== index.html ==================================================================== */

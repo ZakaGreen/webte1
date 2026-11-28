@@ -11,7 +11,7 @@
     line-height: 1.4; /* Sets spacing between printed text lines. */
   }
 
-  .site-header, .site-nav, .site-footer, .skip-link {
+  .site-header, .site-nav, .site-footer, .skip-link, .cv-actions {
     display: none; /* Hides elements that should not be printed. */
   }
 
